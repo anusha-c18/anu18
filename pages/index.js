@@ -26,15 +26,22 @@ export default function Home({ posts }) {
         <div className="flex flex-col-reverse items-start sm:flex-row">
           <div className="flex flex-col pr-8">
             <h1 className="mb-1 text-3xl font-bold tracking-tight text-zinc-800 dark:text-white md:text-5xl">
-              Raphaël Chelly
+              Anusha Chaturvedi
             </h1>
             <h2 className="mb-1 text-xl font-bold tracking-tight text-zinc-600 dark:text-white md:text-2xl">
-              Portfolio of a digital marketing guy who codes a bit.
+              <br></br>
+              <br></br>
+              Portfolio of a{'    '}
+              <span mt="-40px" fontWeight={500} fontSize="28px" className="rw-words-1">
+                <span color="pink"> Software Engineer</span>
+                <span> Dancer</span>
+                <span> Hackathon Lover</span>
+              </span>
             </h2>
           </div>
           <div className="relative mb-8 mr-auto w-[100px] sm:mb-0 sm:w-[200px]">
             <Image
-              src="/static/images/profile.jpg"
+              src="/static/images/me.png"
               alt="avatar"
               width="200px"
               height="200px"
@@ -99,7 +106,7 @@ export default function Home({ posts }) {
         <div className="mt-8 flex flex-wrap gap-4 text-center">
           <a
             className="focusable flex flex-none cursor-pointer items-center justify-center gap-2 rounded-md bg-blue-500 py-2 px-2.5 font-medium text-white shadow-lg shadow-blue-500/10 transition selection:bg-white/30 hover:bg-blue-500/80 hover:shadow-blue-500/5 focus:ring-blue-500/40 dark:bg-blue-400 dark:text-zinc-900 dark:shadow-blue-400/10 dark:selection:bg-zinc-900/30 dark:hover:bg-blue-400/80 dark:hover:shadow-blue-400/5 dark:focus:ring-blue-400/40 sm:w-auto sm:px-3 sm:pl-2.5"
-            href="https://www.linkedin.com/in/raphaelchelly"
+            href="https://www.linkedin.com/in/anusha18/"
             rel="noreferrer"
             target="_blank"
           >
@@ -115,7 +122,7 @@ export default function Home({ posts }) {
           </a>
           <a
             className="focusable flex flex-none cursor-pointer items-center justify-center gap-2 rounded-md bg-indigo-500 py-2 px-2.5 font-medium text-white shadow-lg shadow-indigo-500/10 transition selection:bg-white/30 hover:bg-indigo-500/80 hover:shadow-indigo-500/5 focus:ring-indigo-500/40 dark:bg-indigo-400 dark:text-zinc-900 dark:shadow-indigo-400/10 dark:selection:bg-zinc-900/30 dark:hover:bg-indigo-400/80 dark:hover:shadow-indigo-400/5 dark:focus:ring-indigo-400/40 sm:w-auto sm:px-3 sm:pl-2.5"
-            href="https://github.com/raphaelchelly"
+            href="https://github.com/anusha-c18"
             rel="noreferrer"
             target="_blank"
           >
@@ -131,7 +138,7 @@ export default function Home({ posts }) {
           </a>
           <a
             className="focusable flex flex-none cursor-pointer items-center justify-center gap-2 rounded-md bg-lime-500 py-2 px-2.5 font-medium text-white shadow-lg shadow-lime-500/10 transition selection:bg-white/30 hover:bg-lime-500/80 hover:shadow-lime-500/5 focus:ring-lime-500/40 dark:bg-lime-400 dark:text-zinc-900 dark:shadow-lime-400/10 dark:selection:bg-zinc-900/30 dark:hover:bg-lime-400/80 dark:hover:shadow-lime-400/5 dark:focus:ring-lime-400/40 sm:w-auto sm:px-3 sm:pl-2.5"
-            href="mailto:hi@raphaelchelly.com"
+            href="mailto:anushachaturvedi18@gmail.com"
           >
             <svg height="24" role="presentation" width="24" xmlns="http://www.w3.org/2000/svg">
               <path
@@ -143,7 +150,7 @@ export default function Home({ posts }) {
             </svg>
             <span className="hidden sm:inline">Email</span>
           </a>
-          <a
+          {/* <a
             className="focusable flex flex-none cursor-pointer items-center justify-center gap-2 rounded-md bg-blue-500 py-2 px-2.5 font-medium text-white shadow-lg shadow-blue-500/10 transition selection:bg-white/30 hover:bg-blue-500/80 hover:shadow-blue-500/5 focus:ring-blue-500/40 dark:bg-blue-400 dark:text-zinc-900 dark:shadow-blue-400/10 dark:selection:bg-zinc-900/30 dark:hover:bg-blue-400/80 dark:hover:shadow-blue-400/5 dark:focus:ring-blue-400/40 sm:w-auto sm:px-3 sm:pl-2.5"
             href="https://twitter.com/raphael_chelly"
             rel="noreferrer"
@@ -158,7 +165,7 @@ export default function Home({ posts }) {
               />
             </svg>
             <span className="hidden sm:inline">Twitter</span>
-          </a>
+          </a> */}
         </div>
         <div className="flex w-full justify-center">
           <div className="mt-2 justify-center"></div>
