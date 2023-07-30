@@ -6,7 +6,13 @@ draft: false
 summary: 'The algorithm that made Save A Life Maps possible.'
 ---
 
-In early 2022, I was deeply concerned about the inefficiencies in the response times of emergency service providers, which led me to invent the Path Clearance Algorithm. The novel Path Clearance Algorithm helps realize the project Save A Life Maps (SAL Maps) in targeting and notifying users along the path of an incoming Emergency Service Provider (ESP), urging them to make way. This reduces the overall transit time of the ESP thus significantly increasing the efficiency and success rates of emergency services in reaching the users in need and connecting them with the targeted hospitals.
+In early 2022, I was deeply concerned about the inefficiencies in the response times of emergency
+service providers, which led me to invent the Path Clearance Algorithm. The novel Path Clearance
+Algorithm helps realize the project Save A Life Maps (SAL Maps) in targeting and notifying users
+along the path of an incoming Emergency Service Provider (ESP), urging them to make way. This
+reduces the overall transit time of the ESP thus significantly increasing the efficiency and
+success rates of emergency services in reaching the users in need and connecting them with the
+targeted hospitals.
 
 ### Algorithm
 
@@ -101,8 +107,12 @@ By considering the direction of the incoming ambulance, the algorithm ensures th
 
 #### Notifying the Users Ahead of the ESP
 
-To ensure the smooth flow of traffic behind an ambulance, SAL Maps does not send notifications to users in transit behind the ambulance. This is achieved by excluding the live location of the ambulance in radius generation. Instead, the next two waypoints of the ambulance are used to create the radius, allowing only vehicles ahead of the ambulance to receive a notification to make way for it. As depicted in Figure 2.2, the green car receives a notification while the red car does not receive a notification  
-to make way for the incoming ambulance.
+To ensure the smooth flow of traffic behind an ambulance, SAL Maps does not send notifications to
+users in transit behind the ambulance. This is achieved by excluding the live location of the
+ambulance in radius generation. Instead, the next two waypoints of the ambulance are used to
+create the radius, allowing only vehicles ahead of the ambulance to receive a notification to make
+way for it. As depicted in Figure 2.2, the green car receives a notification while the red car
+does not receive a notification to make way for the incoming ambulance.
 
 <p align="center">
   <Image
@@ -113,13 +123,20 @@ to make way for the incoming ambulance.
     priority
   />
 </p>
-Figure 2.2: Notifying only those users in transit that are ahead of the ESP.
-
-By considering only the next two waypoints of the ambulance, the system reduces the likelihood of generating false alarms for users traveling behind the ambulance, which can cause unnecessary panic and confusion. This way, the system ensures that users behind the ambulance can continue their journey without any interruption, while the vehicles ahead make way for the ambulance to pass through.
+Figure 2.2: Notifying only those users in transit that are ahead of the ESP. By considering only the
+next two waypoints of the ambulance, the system reduces the likelihood of generating false alarms for
+users traveling behind the ambulance, which can cause unnecessary panic and confusion. This way, the
+system ensures that users behind the ambulance can continue their journey without any interruption, while
+the vehicles ahead make way for the ambulance to pass through.
 
 #### Threshold Edge Case
 
-At the outset of dispatching an ambulance, an estimated time of arrival (ETA) is calculated. A threshold of 5 minutes is considered, after which, if the ambulance does not arrive, another ambulance is dispatched to the user in need in parallel. If the first ambulance arrives before the second ambulance, the second ambulance is notified and canceled and vice versa. This redundancy mechanism ensures that timely medical assistance is provided to the user in need, while also optimizing the utilization of resources.
+At the outset of dispatching an ambulance, an estimated time of arrival (ETA) is calculated. A
+threshold of 5 minutes is considered, after which, if the ambulance does not arrive, another
+ambulance is dispatched to the user in need in parallel. If the first ambulance arrives before the
+second ambulance, the second ambulance is notified and canceled and vice versa. This redundancy
+mechanism ensures that timely medical assistance is provided to the user in need, while also
+optimizing the utilization of resources.
 
 #### Crossroads Edge Case
 
