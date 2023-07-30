@@ -69,9 +69,9 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
           <div className="pb-8 " style={{ gridTemplateRows: 'auto 1fr' }}>
             <div className=" xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pb-4 dark:prose-dark">{children}</div>
-              <div className="flex justify-between pt-6 text-sm text-gray-700 dark:text-gray-300">
-                <Link href={editUrl(fileName)}>{'little bitch.com'}</Link>
-              </div>
+              {/* <div className="flex justify-between pt-6 text-sm text-gray-700 dark:text-gray-300">
+                <Link href={editUrl(fileName)}>{'Jelly'}</Link>
+              </div> */}
             </div>
             <footer>
               <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
