@@ -31,11 +31,11 @@ export default function Home({ posts }) {
             <h2 className="mb-1 text-xl font-bold tracking-tight text-zinc-600 dark:text-white md:text-2xl">
               <br></br>
               <br></br>
-              Portfolio of a{'    '}
+              Portfolio of a
               <span mt="-40px" fontWeight={500} fontSize="28px" className="rw-words-1">
-                <span color="pink"> Software Engineer</span>
-                <span> Dancer</span>
-                <span> Hackathon Lover</span>
+                <span className="pinkText"> Software Engineer</span>
+                <span className="pinkText"> Dancer</span>
+                <span className="pinkText"> 4x Hackathon Winner</span>
               </span>
             </h2>
           </div>

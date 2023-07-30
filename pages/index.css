@@ -116,3 +116,12 @@
   align-content: center;
   flex-wrap: wrap;
 }
+
+.pinkText {
+  color: rgb(232, 60, 89) !important;
+  padding-left: 8px;
+}
+
+.siteLogo {
+  height: 50px;
+}

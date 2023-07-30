@@ -7,7 +7,7 @@ const siteMetadata = {
   theme: 'system', // system, dark or light
   siteUrl: 'https://www.anu18.com/',
   siteRepo: 'https://github.com/anusha-c18/anu18',
-  siteLogo: '/static/images/raph-logo.png',
+  siteLogo: '/static/images/computer-engineer.png',
   image: '/static/images/me.png',
   socialBanner: '/static/images/twitter-card.png',
   email: 'anushachaturvedi18@gmail.com',

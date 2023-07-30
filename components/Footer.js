@@ -28,7 +28,7 @@ export default function Footer() {
             className="hover:text-primary-600 hover:underline dark:hover:text-primary-600"
             href="/blog"
           >
-            notes
+            blog
           </Link>
           <Link
             className="hover:text-primary-600 hover:underline dark:hover:text-primary-600"
@@ -40,7 +40,7 @@ export default function Footer() {
             className="hover:text-primary-600 hover:underline dark:hover:text-primary-600"
             href="/about"
           >
-            about
+            resume
           </Link>
         </div>
       </div>

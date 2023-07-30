@@ -1,21 +1,21 @@
-import Link from '@/components/Link'
-import PageTitle from '@/components/PageTitle'
-import { BlogSEO } from '@/components/SEO'
-import siteMetadata from '@/data/siteMetadata'
-import formatDate from '@/lib/utils/formatDate'
-import ScrollTopAndComment from '@/components/ScrollTopAndComment'
-import Image from '@/components/Image'
+import Link from '@/components/Link';
+import PageTitle from '@/components/PageTitle';
+import { BlogSEO } from '@/components/SEO';
+import siteMetadata from '@/data/siteMetadata';
+import formatDate from '@/lib/utils/formatDate';
+import ScrollTopAndComment from '@/components/ScrollTopAndComment';
+import Image from '@/components/Image';
 
 export default function PostLayout({ frontMatter, authorDetails, next, prev, children }) {
-  const { date, title, slug, fileName, readingTime } = frontMatter
+  const { date, title, slug, fileName, readingTime } = frontMatter;
 
-  const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
+  const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`;
   const discussUrl = (slug) =>
     `https://mobile.twitter.com/search?q=${encodeURIComponent(
       `${siteMetadata.siteUrl}/blog/${slug}`
-    )}`
+    )}`;
 
-  const pageViews = undefined
+  const pageViews = undefined;
 
   return (
     <>
@@ -41,7 +41,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
               <div>
                 {authorDetails.map((author) => (
                   <Link key={author.name} href={author.twitter}>
-                    <div className="mb-1 flex items-center space-x-2">
+                    <div className="mb-1 mt-3 flex items-center space-x-2">
                       {author.avatar && (
                         <Image
                           src={author.avatar}
@@ -52,7 +52,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                         />
                       )}
                       <dl className="whitespace-nowrap text-sm font-medium leading-5">
-                        <dt className="sr-only">Name</dt>
+                        <dt className="py-90 sr-only">Name</dt>
                         <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
                         <dt className="sr-only">Twitter</dt>
                       </dl>
@@ -70,10 +70,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
             <div className=" xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pb-4 dark:prose-dark">{children}</div>
               <div className="flex justify-between pt-6 text-sm text-gray-700 dark:text-gray-300">
-                <Link href={editUrl(fileName)}>{'Have a nice day 🌞'}</Link>
-                <Link href={discussUrl(slug)} rel="nofollow">
-                  {'Discuss on Twitter'}
-                </Link>
+                <Link href={editUrl(fileName)}>{'cardi bacardi'}</Link>
               </div>
             </div>
             <footer>
@@ -104,5 +101,5 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
         </div>
       </article>
     </>
-  )
+  );
 }
