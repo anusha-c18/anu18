@@ -70,7 +70,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
             <div className=" xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pb-4 dark:prose-dark">{children}</div>
               <div className="flex justify-between pt-6 text-sm text-gray-700 dark:text-gray-300">
-                <Link href={editUrl(fileName)}>{'cardi bacardi'}</Link>
+                <Link href={editUrl(fileName)}>{'little bitch.com'}</Link>
               </div>
             </div>
             <footer>
