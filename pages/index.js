@@ -51,56 +51,9 @@ export default function Home({ posts }) {
         </div>
         <p className="space-y-4 text-zinc-500 dark:text-slate-300">
           <p className="my-4 leading-loose">
-            Graduated from a Master in Management at{' '}
-            <a
-              className="focusable rounded-sm font-medium text-zinc-800 underline decoration-blue-500 decoration-2 underline-offset-2 transition duration-100 hover:text-blue-500 hover:decoration-sky-500/30 focus:text-blue-500 focus:ring-sky-500/40 dark:text-white dark:decoration-sky-400 dark:hover:text-sky-400 dark:hover:decoration-sky-400/30 dark:focus:text-sky-400 dark:focus:ring-sky-400/40"
-              href="https://www.excelia-group.com/"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Excelia Business School
-            </a>
-            , I am passionate about digital, new technologies and Web3 projects. During my
-            professional experiences, I was able to discover many sectors of activity : Wines and
-            Spirits at{' '}
-            <a
-              className="focusable rounded-sm font-medium text-zinc-800 underline decoration-blue-800 decoration-2 underline-offset-2 transition duration-100 hover:text-blue-800 hover:decoration-blue-800/30 focus:text-blue-500 focus:ring-blue-500/40 dark:text-white dark:decoration-sky-400 dark:hover:text-sky-400 dark:hover:decoration-sky-400/30 dark:focus:text-sky-400 dark:focus:ring-sky-400/40"
-              href="https://www.pernod-ricard.com/"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Pernod Ricard
-            </a>{' '}
-            as a Digital Project Manager & New Technologies at{' '}
-            <a
-              className="focusable rounded-sm font-medium text-zinc-800 underline decoration-green-500 decoration-2 underline-offset-2 transition duration-100 hover:text-green-500 hover:decoration-green-500/30 focus:text-lime-500 focus:ring-lime-500/40 dark:text-white dark:decoration-lime-400 dark:hover:text-lime-400 dark:hover:decoration-lime-400/30 dark:focus:text-lime-400 dark:focus:ring-lime-400/40"
-              href="https://www.microsoft.com/"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Microsoft
-            </a>{' '}
-            as a Marketing Project Manager. Today I work in Bordeaux as a Marketing Project Manager
-            at{' '}
-            <a
-              className="focusable rounded-sm font-medium text-zinc-800 underline decoration-sky-700 decoration-2 underline-offset-2 transition duration-100 hover:text-sky-700 hover:decoration-sky-500/30 focus:text-orange-500 focus:ring-sky-500/40 dark:text-white dark:decoration-blue-400 dark:hover:text-blue-400 dark:hover:decoration-blue-400/30 dark:focus:text-blue-400 dark:focus:ring-blue-400/40"
-              href="https://www.octopia.com/"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Octopia
-            </a>
-            . Besides that, I cofounded the communication agency{' '}
-            <a
-              className="focusable rounded-sm font-medium text-zinc-800 underline decoration-violet-500 decoration-2 underline-offset-2 transition duration-100 hover:text-violet-500 hover:decoration-violet-500/30 focus:text-violet-500 focus:ring-violet-500/40 dark:text-white dark:decoration-violet-400 dark:hover:text-violet-400 dark:hover:decoration-violet-400/30 dark:focus:text-violet-400 dark:focus:ring-violet-400/40"
-              href="https://www.fabrilab.net/"
-              rel="noreferrer"
-              target="_blank"
-            >
-              Fabrilab
-            </a>
-            , that I'm still working on. Versatile & curious in digital marketing, I am confident in
-            several aspects such as Social Media, SEO, E-CRM & Content creation.{' '}
+            I'm Anusha, a passionate Full Stack Engineer from Bangalore, India. I spend my free time
+            watching shows, dancing, playing badminton, and, on certain weekends, I'm glued to the
+            TV watching The Office.
           </p>
         </p>
         <div className="mt-8 flex flex-wrap gap-4 text-center">
@@ -196,13 +149,13 @@ export default function Home({ posts }) {
           <li className="dark:text-zinc-350 my-5 flex items-center gap-4 text-zinc-500">
             <a
               className="link focusable font-medium text-zinc-800 dark:text-white"
-              href="https://www.octopia.com/"
+              href="https://www.hpe.com/us/en/home.html"
               rel="noreferrer"
               target="_blank"
             >
               <Image
-                src="/static/images/workxp/octopia.jpg"
-                alt="Octopia"
+                src="/static/images/workxp/hpe.jpeg"
+                alt="HPE"
                 width="50px"
                 height="50px"
                 className="rounded-md"
@@ -211,17 +164,17 @@ export default function Home({ posts }) {
             <div className="flex min-w-0 flex-col justify-center">
               <p className="mb-1 flex items-center">
                 <span className="truncate font-semibold text-zinc-700 dark:text-zinc-100">
-                  Octopia
+                  Hewlett Packard Enterprise
                 </span>
                 <span className="ml-1.5 inline-block flex-none translate-y-px rounded bg-zinc-100 p-1 text-xs font-medium leading-none text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">
-                  2021
+                  Aug 2023
                   <span className="text-zinc-350 dark:text-zinc-550 mx-0.5">—</span>
                   Today
                 </span>
               </p>
               <p className="flex items-center truncate">
                 <span className="flex-1 truncate text-zinc-500 dark:text-zinc-400">
-                  Marketing Project Manager
+                  Software Engineer
                 </span>
               </p>
             </div>
@@ -229,12 +182,78 @@ export default function Home({ posts }) {
           <li className="dark:text-zinc-350 my-5 flex items-center gap-4 text-zinc-500">
             <a
               className="link focusable font-medium text-zinc-800 dark:text-white"
-              href="https://www.fabrilab.net/"
+              href="https://www.hpe.com/us/en/home.html"
               rel="noreferrer"
               target="_blank"
             >
               <Image
-                src="/static/images/workxp/fabrilab2.jpg"
+                src="/static/images/workxp/hpe.jpeg"
+                alt="HPE"
+                width="50px"
+                height="50px"
+                className="rounded-md"
+              />
+            </a>
+            <div className="flex min-w-0 flex-col justify-center">
+              <p className="mb-1 flex items-center">
+                <span className="truncate font-semibold text-zinc-700 dark:text-zinc-100">
+                  Hewlett Packard Enterprise
+                </span>
+                <span className="ml-1.5 inline-block flex-none translate-y-px rounded bg-zinc-100 p-1 text-xs font-medium leading-none text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">
+                  Jan 2023
+                  <span className="text-zinc-350 dark:text-zinc-550 mx-0.5">—</span>
+                  July 2023
+                </span>
+              </p>
+              <p className="flex items-center truncate">
+                <span className="flex-1 truncate text-zinc-500 dark:text-zinc-400">
+                  Software Engineering Intern
+                </span>
+              </p>
+            </div>
+          </li>
+          <li className="dark:text-zinc-350 my-5 flex items-center gap-4 text-zinc-500">
+            <a
+              className="link focusable font-medium text-zinc-800 dark:text-white"
+              href="https://www.aara.co.in/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <Image
+                src="/static/images/workxp/aara.co.jpg"
+                alt="Aara.co"
+                width="50px"
+                height="50px"
+                className="rounded-md"
+              />
+            </a>
+            <div className="flex min-w-0 flex-col justify-center">
+              <p className="mb-1 flex items-center">
+                <span className="truncate font-semibold text-zinc-700 dark:text-zinc-100">
+                  Aara.co
+                </span>
+                <span className="ml-1.5 inline-block flex-none translate-y-px rounded bg-zinc-100 p-1 text-xs font-medium leading-none text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">
+                  Sept 2022
+                  <span className="text-zinc-350 dark:text-zinc-550 mx-0.5">—</span>
+                  March 2023
+                </span>
+              </p>
+              <p className="flex items-center truncate">
+                <span className="flex-1 truncate text-zinc-500 dark:text-zinc-400">
+                  Full Stack Engineering Intern
+                </span>
+              </p>
+            </div>
+          </li>
+          <li className="dark:text-zinc-350 my-5 flex items-center gap-4 text-zinc-500">
+            <a
+              className="link focusable font-medium text-zinc-800 dark:text-white"
+              href="https://www.samsung.com/us/about-us/our-business/"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <Image
+                src="/static/images/workxp/samsung.png"
                 alt="Octopia"
                 width="50px"
                 height="50px"
@@ -244,83 +263,17 @@ export default function Home({ posts }) {
             <div className="flex min-w-0 flex-col justify-center">
               <p className="mb-1 flex items-center">
                 <span className="truncate font-semibold text-zinc-700 dark:text-zinc-100">
-                  Fabrilab
+                  Samsung Electronics Co., LTD
                 </span>
                 <span className="ml-1.5 inline-block flex-none translate-y-px rounded bg-zinc-100 p-1 text-xs font-medium leading-none text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">
-                  2017
+                  Oct 2021
                   <span className="text-zinc-350 dark:text-zinc-550 mx-0.5">—</span>
-                  Today
+                  June 2022
                 </span>
               </p>
               <p className="flex items-center truncate">
                 <span className="flex-1 truncate text-zinc-500 dark:text-zinc-400">
-                  Co-founder & Project Manager
-                </span>
-              </p>
-            </div>
-          </li>
-          <li className="dark:text-zinc-350 my-5 flex items-center gap-4 text-zinc-500">
-            <a
-              className="link focusable font-medium text-zinc-800 dark:text-white"
-              href="https://www.microsoft.com/"
-              rel="noreferrer"
-              target="_blank"
-            >
-              <Image
-                src="/static/images/workxp/microsoft.jpg"
-                alt="Octopia"
-                width="50px"
-                height="50px"
-                className="rounded-md"
-              />
-            </a>
-            <div className="flex min-w-0 flex-col justify-center">
-              <p className="mb-1 flex items-center">
-                <span className="truncate font-semibold text-zinc-700 dark:text-zinc-100">
-                  Microsoft
-                </span>
-                <span className="ml-1.5 inline-block flex-none translate-y-px rounded bg-zinc-100 p-1 text-xs font-medium leading-none text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">
-                  2019
-                  <span className="text-zinc-350 dark:text-zinc-550 mx-0.5">—</span>
-                  2020
-                </span>
-              </p>
-              <p className="flex items-center truncate">
-                <span className="flex-1 truncate text-zinc-500 dark:text-zinc-400">
-                  Marketing Project Manager Intern
-                </span>
-              </p>
-            </div>
-          </li>
-          <li className="dark:text-zinc-350 my-5 flex items-center gap-4 text-zinc-500">
-            <a
-              className="link focusable font-medium text-zinc-800 dark:text-white"
-              href="https://www.pernod-ricard.com/"
-              rel="noreferrer"
-              target="_blank"
-            >
-              <Image
-                src="/static/images/workxp/pernod-ricard.jpg"
-                alt="Octopia"
-                width="50px"
-                height="50px"
-                className="rounded-md"
-              />
-            </a>
-            <div className="flex min-w-0 flex-col justify-center">
-              <p className="mb-1 flex items-center">
-                <span className="truncate font-semibold text-zinc-700 dark:text-zinc-100">
-                  Pernod Ricard
-                </span>
-                <span className="ml-1.5 inline-block flex-none translate-y-px rounded bg-zinc-100 p-1 text-xs font-medium leading-none text-zinc-500 dark:bg-zinc-800 dark:text-zinc-400">
-                  2018
-                  <span className="text-zinc-350 dark:text-zinc-550 mx-0.5">—</span>
-                  2019
-                </span>
-              </p>
-              <p className="flex items-center truncate">
-                <span className="flex-1 truncate text-zinc-500 dark:text-zinc-400">
-                  Digital Project Manager Intern
+                  Research Intern
                 </span>
               </p>
             </div>
