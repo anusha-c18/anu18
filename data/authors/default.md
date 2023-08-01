@@ -8,108 +8,188 @@ linkedin: https://www.linkedin.com/in/anusha18
 github: https://github.com/anusha-c18
 ---
 
-Graduated from a **Master in Management** at Excelia Business School, I am passionate about **digital and new technologies.** Creative, proactive, versatile and with a good understanding of digital and marketing, **I am confident in my ability to tackle new missions.** Organized and rigorous, I possess a range of key business and interpersonal skills that I have developed through my professional experiences.
-
 - [💼 Experience](#experience)
-- [🧑🏻‍💻 Side Project](#side-project)
-- [🎓 Education](#education)
+- [💻 Projects](#projects)
+- [🥇 Achievements - Hackathons & Awards](#achievements)
+- [👩 Leadership](#leadership)
 - [🤹🏼‍♂️ Skills](#skills)
-- [🏐 Interests](#interests)
+- [🎓 Education](#education)
 
 ## Experience
 
-### Marketing Project Manager @**[Octopia](https://octopia.com)**
+### 1. Software Engineering Intern @ **[Hewlett Packard Enterprise](https://www.hpe.com/us/en/home.html)**
 
-`Oct 2021 - Today`
+`Jan 2023 - July 2023`
 
-Responsible for **the acquisition and marketing development of the Octopia Products offer** in order to develop the activity and e-commerce sales in France and internationally.
+Tech Stack : `React` `Node.js` `Express.js` `MongoDB` `RESTful API` `Postman`
 
-### Marketing Project Manager @[Microsoft](https://microsoft.net)
+**First project - Logarithmic Ranking for Cross Domain Correlations**
 
-`Sept 2019 - Sept 2020`
+- Developed a user-friendly web application in React, integrating libraries like Framer Motion and React Flip-move
+- Implemented dynamic tables with real-time data fetching, pagination, lazy loading, complex filters, and sorting functionalities
+- Designed and deployed a collection hosted on a cloud cluster using MongoDB Atlas
+- Engineered a robust RESTful API using Node.js and Express.js, comprising 7 endpoints to facilitate seamless communication
+  between the frontend and database
 
-Participation in the implementation of Microsoft France’s marketing plan for the Education audience (Primary/Secondary and Higher Education) in order to **develop the network of teachers and partner schools.**
+**Second Project - Proof of Concept (POC) for an Upcoming HPE Product**
 
-### Digital Project Manager @[Havana Club International](https://havana-club.com)
+- Developed an intuitive user interface for filter creation using React, enhancing user experience and ease of use
+- Streamlined the selection of operators in building regular expressions for enhanced efficiency
+- Filters to be downloaded in JSON files after their creation, promoting easy data export
+- Ensured persistent access to the created filters through the existing filters section
+- Visualized each filter’s details in a graphical representation
+- Grouped filters based on criteria through a dropdown menu for convenient organization
+- Facilitated the appending of created filters to an uploadable base file in JSON format, enabling further customization and
+  download
 
-`Jan 2019 - Jul 2019`
+---
 
-As part of the International Marketing team and under the responsibility of the Senior Brand Manager, I participate in the launch and follow-up of **international digital projects** for Havana Club International, a subsidiary of Pernod Ricard group.
+### 2. Full Stack Engineering Intern @ [Aara.co](https://aara.vercel.app/)
 
-### Digital Project Manager @[Pernod Ricard France](https://www.pernod-ricard.com/fr/nos-marches/france)
+`Sept 2022 - March 2023`
 
-`Jul 2018 - Jan 2019`
+Tech Stack : `React` `Node.js` `Express.js` `Firebase Auth` `Firebase Firestore` `Framer Motion`
 
-Support to the Digital Manager on the deployment of the **digital strategy of the Havana Club brand on the French market.**
+[Link To Project](https://aara.vercel.app/)
 
-## Side Project
+- Built a scalable, end-to-end, user-friendly web application that simplifies data collection for placing orders, managing &
+  confirming orders, and dynamically generating invoice PDFs
+- Built 2 Full Stack Applications that interact with Firebase Firestore Link to Aara Client W
+- Client App facilitates the user to login using Firebase Authentication to place an order Link to landing pageW
+- Admin App handles confirmation of orders, order Summaries and Statistics, Dynamic and Sequential Invoice PDF Generation, &
+  Inventory Management (CRUD)
+- Cut down the average order collection time by 75% for over 1000+ students & 500+ orders that assisted in generating
+  $22000 revenue
 
-### Cofounder & Project Manager @[Fabrilab](https://fabrilab.net)
+---
 
-`Sept 2017 - Today`
+### 3. Research Intern @ [Samsung Electronics Co., LTD](https://www.samsung.com/us/about-us/our-business/)
 
-Creation of a communication agency in the form of a micro-enterprise. Fabrilab supports self-employed and small businesses in their **digital transition.**
+`Oct 2021 - June 2022`
 
-- Main clients : TotalEnergies, Solis International, SCEBOG (1st agricultural cooperative of Guyana)...
+Tech Stack : `Natural Language Toolkit` `Python` `Flair`
 
-## Education
+- Developed conversation summarization, intent identification, and slot filling model to improve Bixby’s user experience
+- Achieved 99.28% validation accuracy to identify slots & 99.14% validation accuracy to identify intent of user’s conversations
 
-### Master in Management @[Excelia BS](https://www.excelia-group.com)
+---
 
-`Sept 2016 - Sept 2020`
+## Projects
 
-Member of the «Conférence des Grandes Ecoles», AMBA, AACSB, EQUIS and EPAS accredited. Graduate of a master in management, specialising in Marketing & Brand Management.
+### Save A Life Maps
+
+Tech Stack : `Node.js` `Express.js` `Google Maps API` `RESTful API` `Microservices Architecture` `HTML` `CSS` `Javascript` `MongoDB`
+
+- Invented a novel path clearance algorithm that notifies the users in transit along the path of ambulances to make way
+- Architected system architecture for microservices, REST API, and Flutter apps. Established data flow for all the functionalities
+- Developed microservices using Node.js and Express.js
+- Designed and implemented an API Gateway to facilitate communication between Flutter applications and the microservices
+- Developed a web application to onboard services and created a simulation of the notification system for user familiarisation
+
+---
+
+## Achievements - Hackathons & Awards
+
+### Best Outgoing Student
+
+`Ramaiah Institute of Technology`
+
+### Winner of Pradarshana, 2023
+
+`Team Lead` `Ramaiah Institute of Technology`
+
+### Winner of Smart India Hackathon, 2022
+
+`Team Lead` `Ministry of Education, Government of India`
+
+### Winner of PowerToFly Global Hackathon, 2022
+
+`Team Lead` `Power To Fly, Devpost`
+
+### First Runner-up of Hackman 5.0, 2022
+
+`Team Lead` `Dayananda Sagara College of Engineering`
+
+### Winner of Internal Smart India Hackathon, 2022
+
+`Team Lead` `Ramaiah Institute of Technology`
+
+### Finalist of Toycathon, 2021
+
+`Team Lead` `Ministry of Education, Government of India`
+
+### Award of Academic Excellence, 2017
+
+`Vidya Niketan School`
+
+---
+
+## Leadership
+
+### 1. Core Member @ [Google Developer Student Club, RIT](https://www.linkedin.com/company/dsc-rit/)
+
+Orchestrated 3 competitions, mentored 60 students in a project fest, and hosted 2 workshops in domains like Web Development, Cloud, and General Programming which impacted over 400+ students
+
+### 2. Beta MLSA @ [Microsoft Learn Student Ambassador](https://studentambassadors.microsoft.com/)
+
+Hosted 2 workshops ’Learn to Code using Java I & II’ to teach the concepts of programming to 100+ participants globally
+
+---
 
 ## Skills
 
-### Hard Skills:
+### Languages
 
-- 🇬🇧 English
-- 🇪🇸 Spanish
-- 🤹🏼‍♂️ Project Management
-- 🌐 WordPress
-- 💻 Digital Marketing
-- 🎨 Adobe CC
-- 🔍 SEO
-- 📊 Microsoft 365
-- 📨 E-CRM Management
-- 📱 Social Media Management
+- JavaScript
+- Java
+- HTML
+- CSS
+- Python
+- C
 
-### Soft Skills:
+### Libraries/Frameworks
 
-- 🎨 Creative
-- 📚 Curious
-- 🤝🏼 Team Spirit
+- React
+- Node.js
+- Express.js
+- Framer Motion
 
-## Interests
+### Databases
 
-### Sports:
+- MongoDB
+- SQL
+- Firebase Realtime Database
 
-- 🏄🏽‍♂️ Bodyboarding & Surfing
-- 🏊🏼‍♂️ Swimming
+### Platforms
 
-|                                                       |                                         |
-| ----------------------------------------------------- | --------------------------------------- |
-| ![Bodyboarding](/static/images/bodyboarding-raph.jpg) | ![Wave](/static/images/wave-france.jpg) |
+- Vercel
+- Heroku
+- Firebase
+- Unity 3D
+- Postman
 
-### Others:
+---
 
-- 🗺️ Discovery and Traveling
-- 📷 Photography
-- 🎶 Music
-- ♟️ Chess ➡️ [Chess.com](https://www.chess.com/member/raphythe)
+## Education
 
-### Humanitarian:
+### Bachelor of Engineering - Information Science & Engineering
 
-- 🤝🏼 Volunteer teacher in Cambodia in 2017 for 3 months in a children’s centre **"Les Enfants de Klang Leu".** As a teacher, I taught French, English and IT. Practice hygiene rules and help with the daily life of the center.
+[Ramaiah Institute of Technology](https://www.msrit.edu/)
 
-### Other Experiences:
+- CGPA : 9.12
 
-- **2021:** TikTok Business for Enterprise training
-- **2020:** Facebook Spark AR Tutorials
-- **2018:** Bike courier for Deliveroo and Uber Eats
-- **2018:** Ambassador [ASUS](https://www.asus.com/fr/) Vivobook S and ASUS ZenFone 5
-- **2017-2018:** Digital Project Manager of the Student Office of Excela Business School
-- **2017:** Hotel receptionist in Australia at the [Nomads Noosa Hotel](https://nomadsworld.com/australia/nomads-noosa/)
-- **2016-2017:** Bank teller at [La Poste Group](https://www.lapostegroupe.com/fr) (replacement during the holidays)
-- **2015:** Online advisor at [CIC](https://www.cic.fr/fr/index.html) (6-month fixed-term contract)
+### 11th & 12th - PCMC, ISC
+
+[Vidya Niketan School](https://vidyaniketanhebbal.org/)
+
+- Grade - 88%
+- 100/100 in Computer Application (Java)
+
+### 1st - 10th - ICSE
+
+[Vidya Niketan School](https://vidyaniketanhebbal.org/)
+
+- Grade - 97.2%
+- 100/100 in Computer Science (Java)
+
+---

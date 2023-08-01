@@ -38,7 +38,7 @@ export default function Footer() {
           </Link>
           <Link
             className="hover:text-primary-600 hover:underline dark:hover:text-primary-600"
-            href="/about"
+            href="/resume"
           >
             resume
           </Link>

@@ -10,14 +10,14 @@ export default function AuthorLayout({ children, frontMatter }) {
       <div className="">
         <div className="space-y-2 pt-6 pb-4 md:space-y-5">
           <h1 className="mb-1 text-3xl font-bold tracking-tight text-zinc-800 dark:text-white md:text-5xl">
-            About
+            My Resume
           </h1>
         </div>
         <div className="items-start">
-          <div className="darK:bg-slate-100 flex flex-col items-center rounded-lg bg-slate-700 bg-opacity-10 p-2 text-center md:flex-row">
+          <div className="darK:bg-slate-100 flex flex-col items-center justify-around rounded-lg bg-slate-700 bg-opacity-10 p-2 text-center md:flex-row">
             <h3 className="py-2 text-2xl font-bold leading-8 tracking-tight">{name}</h3>
             <div className="text-gray-500 dark:text-gray-400">{occupation}</div>
-            <div className="text-gray-500 dark:text-gray-400">{company}</div>
+            <div className="dark:text-gray-4004 ml-2 text-gray-500"> {company}</div>
             <div className="flex space-x-3 py-6 px-4 md:py-0 md:px-6">
               <SocialIcon kind="mail" href={`mailto:${email}`} size={5} />
               <SocialIcon kind="github" href={github} size={5} />
