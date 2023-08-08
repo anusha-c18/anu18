@@ -1,21 +1,9 @@
 const projectsData = [
   {
     title: 'Save A Life Maps',
-    description: `Creation of a web design agency.`,
-    imgSrc: '/static/images/projects/fabrilab.png',
-    href: '/blog/projects/fabrilab-web-agency',
-  },
-  {
-    title: 'Save A Life Maps',
-    description: `Creation of a web design agency.`,
-    imgSrc: '/static/images/projects/fabrilab.png',
-    href: '/blog/projects/fabrilab-web-agency',
-  },
-  {
-    title: 'Save A Life Maps',
-    description: `Creation of a web design agency.`,
-    imgSrc: '/static/images/projects/fabrilab.png',
-    href: '/blog/projects/fabrilab-web-agency',
+    description: `Fastest Emergency Service Provider enabled by the Novel Path Clearance Algorithm.`,
+    imgSrc: '/static/images/projects/sal maps/sal.jpeg',
+    href: '/blog/projects/save-a-life-maps',
   },
 ];
 

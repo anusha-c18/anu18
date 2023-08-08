@@ -1,147 +1,162 @@
 ---
-title: Novel Path Clearance Algorithm
-date: '2023-07-30'
-tags: ['Algorithm', 'Google Maps API', 'JavaScript']
+title: Save A Life Maps
+date: '2023-08-08'
+tags: ['Mobile App', 'Web App', 'Project']
 draft: false
-summary: 'The algorithm that made Save A Life Maps possible.'
+summary: 'Fastest Emergency Service Provider enabled by the Novel Path Clearance Algorithm.'
 ---
 
-In early 2022, I was deeply concerned about the inefficiencies in the response times of emergency
-service providers, which led me to invent the Path Clearance Algorithm. The novel Path Clearance
-Algorithm helps realize the project Save A Life Maps (SAL Maps) in targeting and notifying users
-along the path of an incoming Emergency Service Provider (ESP), urging them to make way. This
-reduces the overall transit time of the ESP thus significantly increasing the efficiency and
-success rates of emergency services in reaching the users in need and connecting them with the
-targeted hospitals.
+### Introduction
 
-### Algorithm
+India experiences a staggering number of emergencies every day, with over 3 lakh incidents and an impact on over 9.5% of the population each year. To address this pressing issue, the proposed solution, Save A Life Maps (SAL Maps) aims to enhance the effectiveness and success rate of emergency services in responding within the "golden hour," thereby optimizing their efficiency. The innovative solution, SAL Maps, is a mobile application designed to tackle a critical problem faced by metropolitan cities, with a focus on the most efficient method to clear traffic congestion for Emergency Service Providers (ESPs) during times of need. By integrating cyber and physical space, the solution facilitates individuals in aiding one another in frightening situations, alerting both contingency services and people along the way, thereby promoting a safer and more vigilant society.
 
-The proposed Novel Path Clearance Algorithm enables the users in transit along the path of an incoming ESP to get notified to make way ahead of time and provide a clear path. The algorithm is detailed below:
+### Existing Solutions
 
-1. Firstly, the entire route of the ESP is divided into an array of waypoints derived from the Polyline Object using the Google Maps API.
+The current solutions that are used to mitigate the issue of traffic congestion during emergencies often rely on smart traffic signals. While these systems have been widely implemented, they also have some limitations that need to be addressed. One of the significant problems with smart traffic signals is their reliance on pre-programmed schedules that may not be able to adapt to the unpredictability of emergency situations. In other words, the timing of these signals may not be optimal for ESPs, which can delay their response times and reduce their efficiency. Moreover, these systems are often costly and time-consuming to install, which makes it challenging to implement them on a large scale. Existing software applications only aim at dispatching the nearest ESP to the user in need. However, no software solutions tackle clearing the path for the vehicle.
 
-2. An optimum radius, R1, is chosen based on the minimum distance between a pair of consecutive waypoints from the array initialized in step 1 as shown in Figure 1.1.
+### Problem Statement
 
-   <p align="center">
-     <Image
-       alt={`Algorithm`}
-       src={`/static/images/blogs/pca/algorithm.JPG`}
-       width={1980 / 2}
-       height={1114 / 2}
-       priority
-     />
-   </p>
+To address the above listed issues the proposed solution entails alerting all users through a mobile application, who are in transit along the route of an ESP, urging them to make way for the incoming emergency service vehicle. With willing participation from drivers on the road, a safe and unobstructed path can be created, ensuring prompt and efficient access for the ESP upon arrival at the designated location. While notifying the drivers is a method to help clear out the path for an incoming ESP it can also cause distractions to the driver. To address these problems, a novel software-based solution like SAL Maps can be a more effective alternative. Unlike traditional traffic signals, this innovative software solution leverages the power of advanced technologies and real-time data to optimize traffic flow during emergency situations.
 
-Figure 1.1: Dividing the Polyline Object into an array of Waypoints, determining the radius, and selecting the next two immediate Waypoints that the ESP will travel through.
+### System Design
 
-3. The algorithm considers the current location of the ESP and determines the immediate next two waypoints that the ESP will travel through as highlighted in green in Fig 1.1.
+#### Use Cases
 
-4. Based on the two waypoints and the calculated path-dependent radius, R1, the algorithm generates circular areas around each of the selected waypoints as depicted in Figure 1.2.
+SAL Maps is designed to achieve four use cases:
 
-   <p align="center">
-     <Image
-       alt={`Generation using R1`}
-       src={`/static/images/blogs/pca/generationR1.png`}
-       width={400}
-       height={250}
-       priority
-     />
-   </p>
-   Figure 1.2: Generation of circular areas around the two selected Waypoints using radius R1.
+- First, it facilitates the connection of users with ESP to avail emergency services in critical situations. These could include ambulances, fire brigades, and in certain cases both.
+- Second, it enables emergency service dispatch to connect with users in distress and leverages the proposed algorithm to determine the most efficient and fastest route in real-time.
+- Third, it provides notifications to users along the path of the emergency service vehicle, informing them in advance to move aside and ensure a clear path is available to reduce the overall transit time.
+- Fourth, it notifies the traffic police stationed along the path of the ambulance to help manually clear out the traffic in cases of high congestion.
 
-5. Another Radius, R2, is calculated based upon the chosen radius to generate a concentric circle within the first circular area. The second radius is slightly lesser than the first radius i.e., R2\<R1 as depicted in Figure 1.3.
+#### Process Flow
 
-   <p align="center">
-     <Image
-       alt={`Generation using R2`}
-       src={`/static/images/blogs/pca/generationR2.png`}
-       width={400}
-       height={250}
-       priority
-     />
-   </p>
-   Figure 1.3: Generation of circular areas around the two selected Waypoints using radius R2.
+The Process Flow of the mobile application, SAL Maps is depicted in Figure 3.1. The proposed solution is a comprehensive emergency response system that aims to connect users in distress with the nearest available ESP with a minimal delay that  
+is enabled by the proposed novel path clearance algorithm. The system consists of several interdependent steps to ensure the swift and efficient dispatch of an ambulance in response to a user’s request.
 
-6. A function is used to process the current location of the user in transit, determining whether they are located within the circular area generated around the two waypoints, with R1 serving as the radius.
-
-7. When the user is within the annular region, the first notification is sent to alert the user to prepare to clear the path for the incoming ESP.
-
-8. The second notification is dispatched when the user is within the inner circular area, i.e., the region generated using R2 as the radius, to indicate that they should finally begin to make way and clear the path for the incoming ESP. Figure 1.4 depicts a user getting notified about an incoming emergency service.
-
-   <p align="center">
-     <Image
-       alt={`Algorithm Depiction`}
-       src={`/static/images/blogs/pca/algoDepiction.JPG`}
-       width={250}
-       height={300}
-       priority
-     />
-   </p>
-
-Figure 1.4: The ambulance is about to traverse through a Waypoint. The car in red does not intersect with the area generated using R1 and hence does not receive the notification. The car in yellow receives the first notification to get ready to make way and as it moves further as depicted in green, it receives the second notification to finally make way for the incoming ambulance.
-
-This algorithm provides a sophisticated means of notifying users to clear the path for an incoming ESP, thus minimizing the time taken for the ESP to reach its destination.
-
----
-
-### Edge Cases Covered
-
-SAL Maps is enabled by the innovative Path Clearance Algorithm, which has been designed to cater to various edge cases to ensure the successful implementation of its mission. These edge cases comprise the Two Way Street Edge Case, Notifying the Users Ahead of the Ambulance, Threshold Edge Case, and Crossroads Edge Case.
-
-#### Two Way Street Edge Case
-
-When it comes to the Two Way Street Edge Case, SAL maps employs a sophisticated algorithm to ensure that cars intersecting with the area of the upcoming ambulance waypoint receive proper notifications. However, not every car will receive a notification. Instead, only the green car depicted in Figure 2.1, which is moving along the direction of the incoming ambulance, will be notified to get ready and finally make way. This is achieved by analyzing the next waypoint of the cars and checking if their paths are aligned in the same direction as that of the ambulance. This approach is necessary to prevent excessive notifications from cluttering the user’s screen and potentially causing confusion.
+{' '}
 
 <p align="center">
   <Image
-    alt={`Two way street edge case`}
-    src={`/static/images/blogs/pca/twoWay.JPG`}
-    width={250}
+    alt={`Process Flow`}
+    src={`/static/images/projects/sal maps/processFlow.jpg`}
+    width={500}
     height={300}
     priority
   />
 </p>
-Figure 2.1: Two Way Street Edge Case.
+Figure 1.1: Process Flow.{' '}
 
-By considering the direction of the incoming ambulance, the algorithm ensures that notifications are only sent to relevant parties, reducing the likelihood of accidents and increasing overall safety. The algorithm’s ability to analyze the direction of vehicles is especially vital in cases where multiple vehicles are approaching the same waypoint. By only notifying vehicles moving in the same direction as the ambulance, the algorithm avoids overburdening drivers with unnecessary alerts, thus promoting a safe and efficient environment for everyone on the road.
+1. In step one, the user can easily access the application and tap a single button to connect with an ESP. The system then securely and accurately acquires the user’s location data with their explicit consent, enabling the dispatch of the nearest ambulance or fire brigade in the vicinity.
 
-#### Notifying the Users Ahead of the ESP
+2. Step two involves broadcasting a notification to all the nearest ambulances within a certain radius of the user’s location. If there is no response from any of the ambulances, the search radius gradually increases until a response is received. This feature ensures that a timely response is provided to the user in need.
 
-To ensure the smooth flow of traffic behind an ambulance, SAL Maps does not send notifications to
-users in transit behind the ambulance. This is achieved by excluding the live location of the
-ambulance in radius generation. Instead, the next two waypoints of the ambulance are used to
-create the radius, allowing only vehicles ahead of the ambulance to receive a notification to make
-way for it. As depicted in Figure 2.2, the green car receives a notification while the red car
-does not receive a notification to make way for the incoming ambulance.
+3. Upon receiving the request, step three provides the dispatched ambulance with an optimized route through a path finding algorithm, which works in real-time. The user can track the progress of the ambulance in real-time, providing them  
+   with important information such as the estimated time of arrival and the contact details of the driver and paramedics.
+
+4. Step four ensures the efficient movement of the ambulance through the path to the user. The system notifies users along the path of the ambulance to move out of the way in advance, providing sufficient time to clear the path for the incoming ambulance. This notification is shown on the user’s screen for as long as they are in the path of the ambulance, ensuring efficient communication and timely arrival of the ambulance at the user’s location.
+
+5. In addition to notifying users in transit, step five involves notifying the traffic police stationed along the ambulance’s path in cases of high traffic congestion. This feature enables the manual clearance of traffic to create a path for the ambulance, reducing the time taken to reach the user in need and back to the hospital. The dispatched ambulance then picks up the user in need and takes them back to the nearest hospital.
+
+#### System Architecture
+
+There are two mobile applications in place, with the first mobile application specifically designed for ESP such as ambulance drivers, and the second one for general public users. The first mobile application intended for the ESP, alerts the drivers when a user  
+nearby is in need. The location of the user is only disclosed to the driver if he/she is the first driver to accept the request of the user. Upon doing so, a path is generated for the driver to reach the user and to take them back to the hospital. The location  
+of the ESPs are updated in the database through the application such that they can be notified if a user near them is requesting for their services. Therefore, it features several functionalities, including real-time ambulance tracking, location-based service dispatch, and emergency alerts for the ambulance drivers. The application is integrated with Google Maps to provide efficient routing for emergency services.
+
+{' '}
 
 <p align="center">
   <Image
-    alt={`notifying vehicles ahead`}
-    src={`/static/images/blogs/pca/notifyAhead.jpg`}
-    width={250}
+    alt={`System Architecture`}
+    src={`/static/images/projects/sal maps/systemArchitecture.jpg`}
+    width={450}
     height={300}
     priority
   />
 </p>
-Figure 2.2: Notifying only those users in transit that are ahead of the ESP. By considering only the
-next two waypoints of the ambulance, the system reduces the likelihood of generating false alarms for
-users traveling behind the ambulance, which can cause unnecessary panic and confusion. This way, the
-system ensures that users behind the ambulance can continue their journey without any interruption, while
-the vehicles ahead make way for the ambulance to pass through.
 
-#### Threshold Edge Case
+Figure 1.2: System Architecture
 
-At the outset of dispatching an ambulance, an estimated time of arrival (ETA) is calculated. A
-threshold of 5 minutes is considered, after which, if the ambulance does not arrive, another
-ambulance is dispatched to the user in need in parallel. If the first ambulance arrives before the
-second ambulance, the second ambulance is notified and canceled and vice versa. This redundancy
-mechanism ensures that timely medical assistance is provided to the user in need, while also
-optimizing the utilization of resources.
+The second mobile application offers general navigation purposes for users to travel from point A to point B. It also offers emergency services to users by simply tapping on the SOS button. The users can visually track the dispatched ESP through a maps interface upon availing the requested services in times of need. Additionally, users in transit receive notifications to make way if they are along the path of an incoming ESP.
 
-#### Crossroads Edge Case
+The RESTful API is an essential gateway between the mobile applications and the microservices. All requests that the client applications make to the server go through the API Gateway, which, in turn, communicates with a combination of one or more
+of the five microservices to provide the necessary information, data, and results. The API Gateway enables us to achieve abstraction and a loosely coupled microservices architecture, which allows for scalability of each microservice independently without having to worry about the client-side of the code base. The API Gateway also interacts with Google Maps API, which enables necessary functionality such as retrieving the Polyline Object and the user’s Geolocation. It also interacts with the NoSQL database  
+to retrieve data about ESP. This data is essential for providing a timely and fast dispatch of services to the user in need, making the service efficient. The proposed [Novel Path Clearance Algorithm](/blog/projects/novel-path-clearance-algorithm) enables the users in transit along the path of an incoming ESP to get notified to make way ahead of time and provide a clear path.
 
-In the Crossroads Edge Case, when the ambulance approaches a crossroad, multiple vehicles from different directions might need to be notified to make way. To handle this situation, the algorithm considers the next two waypoints of each vehicle and checks if they intersect with the ambulance’s path. Only the vehicles who’s next two waypoints intersect with the ambulance’s path are notified to make way.
+The system architecture of the SAL Maps mobile application is designed with scalability and efficiency in mind. The API Gateway provides a centralized communication point between the client and server-side of the application. The use of mobile  
+applications, RESTful API, Google Maps API, NoSQL database, and microservices ensures that the application’s functionalities are divided into independent services, making it easy to scale and maintain.
 
-The Crossroads Edge Case is just one example of how the novel path clearance algorithm developed by SAL Maps takes into account various edge cases to provide efficient and effective emergency services. By considering the location and direction of the incoming ambulance as well as the location and path of other vehicles on the road, the algorithm ensures that only the necessary notifications are sent, reducing unnecessary distractions for drivers and improving response times for emergency services.
+#### Notification System
+
+The SAL Maps Notification System (Fig 3.9) is designed to prioritize safety and avoid accidents on the road by taking into account the varying response times of drivers. By providing a risk-averse notification system that considers the psychology and mindset  
+of drivers, the aim is to enable them to adapt to the requirement of making way gradually, rather than startle them with a single notification.
+
+In order to achieve this, the proposed system follows a two-step notification process. Firstly, users receive a non-invasive notification to get ready to make way. This notification is designed to adapt to the varying response times of drivers and helps  
+them gradually prepare to clear the path for the incoming ESP. Once the user is ready to make way, they receive a second notification prompting them to finally clear the path for the emergency vehicle.
+
+{' '}
+
+<p align="center">
+  <Image
+    alt={`Notification System`}
+    src={`/static/images/projects/sal maps/notifications.PNG`}
+    width={400}
+    height={300}
+    priority
+  />
+</p>
+Figure 1.3: Notification Systems
+
+The SAL Maps notification system provides users with the option to receive notifications in three different ways.
+
+1. Users can opt to receive notifications using a Color-coded System, where the polyline object displayed on their screen for navigation purposes changes from blue to yellow to get ready to make way and then yellow to green as they finally need to make way. Upon making way or moving out of the zone of the incoming ambulance, the polyline object turns back to blue.
+2. Alternatively, they can use the Vibration Based system, which delivers two vibrations to get ready to make way and three vibrations to finally start making way.
+3. Finally, users can choose to opt for an Audio Based system that involves notifying users thorough audio clips that prompt them to get ready and then to finally start making way for the incoming ESP.
+
+### Implementation
+
+#### Tools & Technologies
+
+{' '}
+
+<p align="center">
+  <Image
+    alt={`Tools & Tech`}
+    src={`/static/images/projects/sal maps/system design.jpg`}
+    width={450}
+    height={300}
+    priority
+  />
+</p>
+
+Figure 2.1: Tools and Technologies.
+
+#### Database Schema
+
+{' '}
+
+<p align="center">
+  <Image
+    alt={`Database Schema`}
+    src={`/static/images/projects/sal maps/database.png`}
+    width={400}
+    height={300}
+    priority
+  />
+</p>
+Figure 2.2: Database Schema
+
+### Results
+
+The Onboarding Web Application serves a diverse range of purposes, encompassing four key functionalities. These include facilitating the onboarding process for organizations, providing a user walk through to familiarize individuals with the platform,  
+showcasing the SOS button through a demo, and simulating notification alerts to prepare users for real-life scenarios. By offering these features, the application aims to deliver a comprehensive onboarding experience that equips users with the necessary  
+knowledge and skills to navigate the platform effectively and efficiently.
+
+[Link to SAL Maps Showcase Web App](https://sal-showcase.web.app/)
+
+### Conclusion
+
+The proposed solution aims to address traffic congestion for emergency service providers (ESP) in metropolitan areas, enhancing their response efficiency. It is a novel, cost-effective, and scalable software-based solution using microservices architecture. This integration of cyber and physical space promotes a safer society, aligning with Society 5.0's vision. In conclusion, the project offers an innovative and valuable tool with demonstrated benefits, potentially making a significant impact in the market.
 
 ---
