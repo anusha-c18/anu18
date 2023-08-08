@@ -9,7 +9,7 @@ const siteMetadata = {
   siteRepo: 'https://github.com/anusha-c18/anu18',
   siteLogo: '/static/images/computer-engineer.png',
   image: '/static/images/me.png',
-  socialBanner: '/static/images/twitter-card.png',
+  socialBanner: '/static/images/me.png',
   email: 'anushachaturvedi18@gmail.com',
   github: 'https://github.com/anusha-c18',
   linkedin: 'https://www.linkedin.com/in/anusha18',
