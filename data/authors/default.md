@@ -12,6 +12,7 @@ github: https://github.com/anusha-c18
 - [💻 Projects](#projects)
 - [🥇 Achievements - Hackathons & Awards](#achievements)
 - [👩 Leadership](#leadership)
+- [📝 Publications](#publications)
 - [🤹🏼‍♂️ Skills](#skills)
 - [🎓 Education](#education)
 
@@ -88,37 +89,39 @@ Tech Stack : `Node.js` `Express.js` `Google Maps API` `RESTful API` `Microservic
 
 ---
 
-## Achievements - Hackathons & Awards
+## Achievements
 
-### Best Outgoing Student
+## Hackathons & Awards
+
+### 1. Best Outgoing Student
 
 `Ramaiah Institute of Technology`
 
-### Winner of Pradarshana, 2023
+### 2. Winner of Pradarshana, 2023
 
 `Team Lead` `Ramaiah Institute of Technology`
 
-### Winner of Smart India Hackathon, 2022
+### 3. Winner of Smart India Hackathon, 2022
 
 `Team Lead` `Ministry of Education, Government of India`
 
-### Winner of PowerToFly Global Hackathon, 2022
+### 4. Winner of PowerToFly Global Hackathon, 2022
 
 `Team Lead` `Power To Fly, Devpost`
 
-### First Runner-up of Hackman 5.0, 2022
+### 5. First Runner-up of Hackman 5.0, 2022
 
 `Team Lead` `Dayananda Sagara College of Engineering`
 
-### Winner of Internal Smart India Hackathon, 2022
+### 6. Winner of Internal Smart India Hackathon, 2022
 
 `Team Lead` `Ramaiah Institute of Technology`
 
-### Finalist of Toycathon, 2021
+### 7. Finalist of Toycathon, 2021
 
 `Team Lead` `Ministry of Education, Government of India`
 
-### Award of Academic Excellence, 2017
+### 8. Award of Academic Excellence, 2017
 
 `Vidya Niketan School`
 
@@ -133,6 +136,16 @@ Orchestrated 3 competitions, mentored 60 students in a project fest, and hosted 
 ### 2. Beta MLSA @ [Microsoft Learn Student Ambassador](https://studentambassadors.microsoft.com/)
 
 Hosted 2 workshops ’Learn to Code using Java I & II’ to teach the concepts of programming to 100+ participants globally
+
+---
+
+## Publications
+
+### Modernization and Innovative Development in Society 5.0
+
+Society 5.0: Smart Future Towards Enhancing the Quality of Society. Springer, Singapore.
+
+[Link to Chapter](https://link.springer.com/chapter/10.1007/978-981-19-2161-2_2##citeas)
 
 ---
 
