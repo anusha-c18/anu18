@@ -60,9 +60,7 @@ Figure 1.1: Process Flow.{' '}
 
 #### System Architecture
 
-There are two mobile applications in place, with the first mobile application specifically designed for ESP such as ambulance drivers, and the second one for general public users. The first mobile application intended for the ESP, alerts the drivers when a user  
-nearby is in need. The location of the user is only disclosed to the driver if he/she is the first driver to accept the request of the user. Upon doing so, a path is generated for the driver to reach the user and to take them back to the hospital. The location  
-of the ESPs are updated in the database through the application such that they can be notified if a user near them is requesting for their services. Therefore, it features several functionalities, including real-time ambulance tracking, location-based service dispatch, and emergency alerts for the ambulance drivers. The application is integrated with Google Maps to provide efficient routing for emergency services.
+There are two mobile applications in place, with the first mobile application specifically designed for ESP such as ambulance drivers, and the second one for general public users. The first mobile application intended for the ESP, alerts the drivers when a user nearby is in need. The location of the user is only disclosed to the driver if he/she is the first driver to accept the request of the user. Upon doing so, a path is generated for the driver to reach the user and to take them back to the hospital. The location of the ESPs are updated in the database through the application such that they can be notified if a user near them is requesting for their services. Therefore, it features several functionalities, including real-time ambulance tracking, location-based service dispatch, and emergency alerts for the ambulance drivers. The application is integrated with Google Maps to provide efficient routing for emergency services.
 
 {' '}
 
@@ -81,19 +79,15 @@ Figure 1.2: System Architecture
 The second mobile application offers general navigation purposes for users to travel from point A to point B. It also offers emergency services to users by simply tapping on the SOS button. The users can visually track the dispatched ESP through a maps interface upon availing the requested services in times of need. Additionally, users in transit receive notifications to make way if they are along the path of an incoming ESP.
 
 The RESTful API is an essential gateway between the mobile applications and the microservices. All requests that the client applications make to the server go through the API Gateway, which, in turn, communicates with a combination of one or more
-of the five microservices to provide the necessary information, data, and results. The API Gateway enables us to achieve abstraction and a loosely coupled microservices architecture, which allows for scalability of each microservice independently without having to worry about the client-side of the code base. The API Gateway also interacts with Google Maps API, which enables necessary functionality such as retrieving the Polyline Object and the user’s Geolocation. It also interacts with the NoSQL database  
-to retrieve data about ESP. This data is essential for providing a timely and fast dispatch of services to the user in need, making the service efficient. The proposed [Novel Path Clearance Algorithm](/blog/projects/novel-path-clearance-algorithm) enables the users in transit along the path of an incoming ESP to get notified to make way ahead of time and provide a clear path.
+of the five microservices to provide the necessary information, data, and results. The API Gateway enables us to achieve abstraction and a loosely coupled microservices architecture, which allows for scalability of each microservice independently without having to worry about the client-side of the code base. The API Gateway also interacts with Google Maps API, which enables necessary functionality such as retrieving the Polyline Object and the user’s Geolocation. It also interacts with the NoSQL database to retrieve data about ESP. This data is essential for providing a timely and fast dispatch of services to the user in need, making the service efficient. The proposed [Novel Path Clearance Algorithm](/blog/projects/novel-path-clearance-algorithm) enables the users in transit along the path of an incoming ESP to get notified to make way ahead of time and provide a clear path.
 
-The system architecture of the SAL Maps mobile application is designed with scalability and efficiency in mind. The API Gateway provides a centralized communication point between the client and server-side of the application. The use of mobile  
-applications, RESTful API, Google Maps API, NoSQL database, and microservices ensures that the application’s functionalities are divided into independent services, making it easy to scale and maintain.
+The system architecture of the SAL Maps mobile application is designed with scalability and efficiency in mind. The API Gateway provides a centralized communication point between the client and server-side of the application. The use of mobile applications, RESTful API, Google Maps API, NoSQL database, and microservices ensures that the application’s functionalities are divided into independent services, making it easy to scale and maintain.
 
 #### Notification System
 
-The SAL Maps Notification System (Fig 3.9) is designed to prioritize safety and avoid accidents on the road by taking into account the varying response times of drivers. By providing a risk-averse notification system that considers the psychology and mindset  
-of drivers, the aim is to enable them to adapt to the requirement of making way gradually, rather than startle them with a single notification.
+The SAL Maps Notification System (Fig 3.9) is designed to prioritize safety and avoid accidents on the road by taking into account the varying response times of drivers. By providing a risk-averse notification system that considers the psychology and mindset of drivers, the aim is to enable them to adapt to the requirement of making way gradually, rather than startle them with a single notification.
 
-In order to achieve this, the proposed system follows a two-step notification process. Firstly, users receive a non-invasive notification to get ready to make way. This notification is designed to adapt to the varying response times of drivers and helps  
-them gradually prepare to clear the path for the incoming ESP. Once the user is ready to make way, they receive a second notification prompting them to finally clear the path for the emergency vehicle.
+In order to achieve this, the proposed system follows a two-step notification process. Firstly, users receive a non-invasive notification to get ready to make way. This notification is designed to adapt to the varying response times of drivers and helps them gradually prepare to clear the path for the incoming ESP. Once the user is ready to make way, they receive a second notification prompting them to finally clear the path for the emergency vehicle.
 
 {' '}
 
@@ -149,9 +143,7 @@ Figure 2.2: Database Schema
 
 ### Results
 
-The Onboarding Web Application serves a diverse range of purposes, encompassing four key functionalities. These include facilitating the onboarding process for organizations, providing a user walk through to familiarize individuals with the platform,  
-showcasing the SOS button through a demo, and simulating notification alerts to prepare users for real-life scenarios. By offering these features, the application aims to deliver a comprehensive onboarding experience that equips users with the necessary  
-knowledge and skills to navigate the platform effectively and efficiently.
+The Onboarding Web Application serves a diverse range of purposes, encompassing four key functionalities. These include facilitating the onboarding process for organizations, providing a user walk through to familiarize individuals with the platform, showcasing the SOS button through a demo, and simulating notification alerts to prepare users for real-life scenarios. By offering these features, the application aims to deliver a comprehensive onboarding experience that equips users with the necessary knowledge and skills to navigate the platform effectively and efficiently.
 
 [Link to SAL Maps Showcase Web App](https://sal-showcase.web.app/)
 
