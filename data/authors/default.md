@@ -49,7 +49,7 @@ Tech Stack : `React` `Node.js` `Express.js` `MongoDB` `RESTful API` `Postman`
 
 `Sept 2022 - March 2023`
 
-Tech Stack : `React` `Node.js` `Express.js` `Firebase Auth` `Firebase Firestore` `Framer Motion`
+Tech Stack : `React` `Firebase Auth` `Firebase Firestore` `Framer Motion`
 
 [Link To Project](https://aara.vercel.app/)
 
