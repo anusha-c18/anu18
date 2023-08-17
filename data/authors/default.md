@@ -55,8 +55,8 @@ Tech Stack : `React` `Node.js` `Express.js` `Firebase Auth` `Firebase Firestore`
 
 - Built a scalable, end-to-end, user-friendly web application that simplifies data collection for placing orders, managing &
   confirming orders, and dynamically generating invoice PDFs
-- Built 2 Full Stack Applications that interact with Firebase Firestore Link to Aara Client W
-- Client App facilitates the user to login using Firebase Authentication to place an order Link to landing pageW
+- Built 2 Full Stack Applications that interact with Firebase Firestore
+- Client App facilitates the user to login using Firebase Authentication to place an order
 - Admin App handles confirmation of orders, order Summaries and Statistics, Dynamic and Sequential Invoice PDF Generation, &
   Inventory Management (CRUD)
 - Cut down the average order collection time by 75% for over 1000+ students & 500+ orders that assisted in generating
