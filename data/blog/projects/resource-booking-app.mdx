@@ -57,7 +57,11 @@ As I began outlining the project's requirements and architecting its structure, 
 
 ### Presentation Layer
 
-This layer consists of the frontend that is accessible by the different kinds of users which include the clients and admin.
+- Within this layer, you'll find the frontend accessible to various user types, including both clients and admins. The user's access is directed to specific views based on their assigned role.
+
+- For clients, the user interface offers three main options: logging out, accessing the ‘My Bookings’ page to view current and previous bookings, or making reservations on the ‘Available Resources’ page.
+
+- Admins have a trio of choices as well: logging out, viewing client bookings on the ‘Resource Overview’ page, or engaging in CRUD operations within the ‘Resource Management’ page.
 
 ### Application Layer
 
@@ -69,7 +73,7 @@ This layer consists of the RESTful API designed with several secure endpoints as
 
 2. **createUser**
 
-- If a newly registered user is detected, it activates a modal to gather the user's flat number and subsequently stores the user's data in the database's user collection. For instance, consider a new user named "Anusha" residing in flat C602. In this case, the following details are added to the collection:
+- If a newly registered user is detected, it activates a modal to gather the user's flat number and subsequently stores the user's data in the database's user collection. For instance, consider a new user named ‘Anusha’ residing in flat C602. In this case, the following details are added to the collection:
 
 ```JavaScript
 { name: "Anusha", flat: "C602" }
@@ -129,7 +133,7 @@ This layer consists of the RESTful API designed with several secure endpoints as
 
   2. **Client Page**: It checks for the availability of existing resources that can be booked. If no unique existing resources are found, the client is informed that no resources currently exist.
 
-- It's important to note that **getUniqueExistingResources** differs from **getUniqueAvailableResources**. **getUniqueAvailableResources** is only called if there are any existing resources which is determined by **getUniqueExistingResources**.
+- It's important to note that **getUniqueExistingResources** differs from **getUniqueAvailableResources**. The endpoint **getUniqueAvailableResources** is only called if there are any existing resources which is determined by **getUniqueExistingResources**.
 
 11. **getAllBookings**
 
