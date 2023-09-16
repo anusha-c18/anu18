@@ -1,0 +1,72 @@
+---
+title: Resource Booking App
+date: '2023-09-15'
+tags: ['Web App', 'Mobile First Design', 'Project', 'JavaScript']
+draft: false
+summary: 'Resource Booking Made Easy!'
+---
+
+### Introduction
+
+With multiple resources available in large-sized apartments, there are always conflicts in their usage and availability among the residents. Living in such an apartment myself made me realise that there is a simple solution to this trivial issue - a Resource Booking App.
+
+### Key Features
+
+As I sat down to list the requirements for this project and design its architecture, I wanted to integrate certain features and platforms to upskill. Listed below are the highlights of the project that I set out to achieve:
+
+- Three-Tier Architecture: Frontend, RESTful API, Backend
+- Client and Admin logins
+- Admin’s functionalities - CRUD apartment resources
+- Client’s functionalities - Book resources & view current and previous bookings
+
+### Tech Stack
+
+{' '}
+
+<p align="center">
+  <Image
+    alt={`System Architecture`}
+    src={`/static/images/projects/resource booking app/Tech Stack.jpg`}
+    width={500}
+    height={300}
+    priority
+  />
+</p>
+
+- For the frontend I used React, Framer Motion, React Router, React Hot Toast, and Vite, and deployed it on Vercel.
+
+- I developed the RESTful API using Node.js and Express.js. To test the endpoints created I used Postman. To load test the API I used Apache JMeter. The RESTful API is deployed separately using Vercel.
+
+- I engineered a database with three collections and hosted it on a cluster in MongoDB Atlas.
+
+- For authentication, authorization: creating secure endpoints and Role-Based Access Control, I used Auth0.
+
+### System Architecture
+
+{' '}
+
+<p align="center">
+  <Image
+    alt={`System Architecture`}
+    src={`/static/images/projects/resource booking app/System architecture.jpg`}
+    width={600}
+    height={300}
+    priority
+  />
+</p>
+
+#### Presentation Layer
+
+This layer consists of the frontend that is accessible by the different kinds of users which include the clients & admin.
+
+#### Application Layer
+
+This layer consists of the RESTful API designed with several secure endpoints as detailed out in the image.
+
+#### Database Layer
+
+As the name suggests, this layer consists of the database, ‘resourceBooking’, with 3 different collections:
+
+- allResources
+- bookings
+- users
