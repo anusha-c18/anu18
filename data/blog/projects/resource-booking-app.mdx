@@ -6,11 +6,11 @@ draft: false
 summary: 'Resource Booking Made Easy!'
 ---
 
-### Introduction
+## Introduction
 
 Have you ever found yourself in a big apartment complex with tons of amenities like gyms, pools, and shared spaces? It sounds awesome, but there's a catch – it's often a hassle to actually use these resources because everyone's vying for them. Trying to book a spot or equipment can turn into a real headache when everyone's competing for the same things. It hit me one day – there's got to be a simpler way to sort this out. That's when I got the idea for something I believe could change the game: a Resource Booking App.
 
-### Key Features
+## Key Features
 
 As I began outlining the project's requirements and architecting its structure, I aimed to incorporate specific features and platforms to enhance my skill set. Here are the project's key objectives that I set out to accomplish:
 
@@ -19,7 +19,7 @@ As I began outlining the project's requirements and architecting its structure, 
 - Admin’s functionalities - Create, read, update, and delete (CRUD) resources
 - Client’s functionalities - Book resources and view current and previous bookings
 
-### Tech Stack
+## Tech Stack
 
 {' '}
 
@@ -41,7 +41,7 @@ As I began outlining the project's requirements and architecting its structure, 
 
 - **Authentication and Authorization**: Implemented Auth0 for authentication and authorization - creating secure endpoints and Role-Based Access Control.
 
-### System Architecture
+## System Architecture
 
 {' '}
 
@@ -55,11 +55,11 @@ As I began outlining the project's requirements and architecting its structure, 
   />
 </p>
 
-#### Presentation Layer
+### Presentation Layer
 
 This layer consists of the frontend that is accessible by the different kinds of users which include the clients and admin.
 
-#### Application Layer
+### Application Layer
 
 This layer consists of the RESTful API designed with several secure endpoints as detailed in the image.
 
@@ -147,7 +147,7 @@ This layer consists of the RESTful API designed with several secure endpoints as
 
 - This endpoint is triggered upon user login to fetch their flat details. However, it is not invoked if the user has just signed up. The retrieved flat information is used when the user is booking resources.
 
-#### Database Layer
+### Database Layer
 
 As the name suggests, this layer consists of the database, ‘resourceBooking’, with 3 different collections:
 
@@ -167,4 +167,4 @@ As the name suggests, this layer consists of the database, ‘resourceBooking’
   />
 </p>
 
-### Auth0 Integration
+## Auth0 Integration
