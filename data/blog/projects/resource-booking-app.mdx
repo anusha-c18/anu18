@@ -8,16 +8,16 @@ summary: 'Resource Booking Made Easy!'
 
 ### Introduction
 
-With multiple resources available in large-sized apartments, there are always conflicts in their usage and availability among the residents. Living in such an apartment myself made me realise that there is a simple solution to this trivial issue - a Resource Booking App.
+Have you ever found yourself in a big apartment complex with tons of amenities like gyms, pools, and shared spaces? It sounds awesome, but there's a catch – it's often a hassle to actually use these resources because everyone's vying for them. Trying to book a spot or equipment can turn into a real headache when everyone's competing for the same things. It hit me one day – there's got to be a simpler way to sort this out. That's when I got the idea for something I believe could change the game: a Resource Booking App.
 
 ### Key Features
 
-As I sat down to list the requirements for this project and design its architecture, I wanted to integrate certain features and platforms to upskill. Listed below are the highlights of the project that I set out to achieve:
+As I began outlining the project's requirements and architecting its structure, I aimed to incorporate specific features and platforms to enhance my skill set. Here are the project's key objectives that I set out to accomplish:
 
-- Three-Tier Architecture: Frontend, RESTful API, Backend
-- Client and Admin logins
-- Admin’s functionalities - CRUD apartment resources
-- Client’s functionalities - Book resources & view current and previous bookings
+- Three-Tier Architecture - Frontend, RESTful API, Backend
+- Login and different views for two types of users - Client and Admin
+- Admin’s functionalities - Create, read, update, and delete (CRUD) resources
+- Client’s functionalities - Book resources and view current and previous bookings
 
 ### Tech Stack
 
@@ -33,13 +33,13 @@ As I sat down to list the requirements for this project and design its architect
   />
 </p>
 
-- For the frontend I used React, Framer Motion, React Router, React Hot Toast, and Vite, and deployed it on Vercel.
+- **Frontend**: React, Framer Motion, React Router, React Hot Toast, and Vite, deployed on Vercel.
 
-- I developed the RESTful API using Node.js and Express.js. To test the endpoints created I used Postman. To load test the API I used Apache JMeter. The RESTful API is deployed separately using Vercel.
+- **Backend**: Node.js and Express.js for the RESTful API, tested with Postman and Apache JMeter, deployed on Vercel.
 
-- I engineered a database with three collections and hosted it on a cluster in MongoDB Atlas.
+- **Database**: Designed a database consisting of three distinct collections. This database was securely hosted on a cluster within MongoDB Atlas.
 
-- For authentication, authorization: creating secure endpoints and Role-Based Access Control, I used Auth0.
+- **Authentication and Authorization**: Implemented Auth0 for authentication and authorization - creating secure endpoints and Role-Based Access Control.
 
 ### System Architecture
 
@@ -57,11 +57,95 @@ As I sat down to list the requirements for this project and design its architect
 
 #### Presentation Layer
 
-This layer consists of the frontend that is accessible by the different kinds of users which include the clients & admin.
+This layer consists of the frontend that is accessible by the different kinds of users which include the clients and admin.
 
 #### Application Layer
 
-This layer consists of the RESTful API designed with several secure endpoints as detailed out in the image.
+This layer consists of the RESTful API designed with several secure endpoints as detailed in the image.
+
+1. **checkUser**
+
+- This endpoint is used to check if this is the first login of the user and assigns an appropriate role to the user.
+
+2. **createUser**
+
+- If a newly registered user is detected, it activates a modal to gather the user's flat number and subsequently stores the user's data in the database's user collection. For instance, consider a new user named "Anusha" residing in flat C602. In this case, the following details are added to the collection:
+
+```JavaScript
+{ name: "Anusha", flat: "C602" }
+```
+
+3. **createNewResource**
+
+- When an admin completes the resource details, this endpoint is invoked to add the resource to the allResources collection. The admin provides information including the resource's name, start time, and end time. This endpoint generates multiple resource records, each spanning one hour, commencing at the specified start time and ending at the resource's designated end time. Suppose an admin wants to create a new resource named ‘Conference Room A’ available from 9:00 AM to 11:00 AM. When they call the createNewResource endpoint with these details, the system generates multiple records as follows:
+
+```JavaScript
+{ resource: "Conference Room A", startTime: "9", endTime: "10", date: "09/09/2023", available: "1" }
+{ resource: "Conference Room A", startTime: "10", endTime: "11", date: "09/09/2023", available: "1" }
+```
+
+- This allows users to book ‘Conference Room A’ for one-hour slots within the specified time frame.
+
+4. **deleteResource**
+
+- This endpoint is used by the admin to delete an existing resource from the ‘allResources’ collection. It deletes all the records of the resource by matching the field ‘resource’.
+
+5. **insertBooking**
+
+- This endpoint is evoked when a client books a resource from the available set of resources. The following sample record is generated and pushed into the ‘bookings’ collection:
+
+```JavaScript
+{ resource: "Badminton", flat: "B-501", name: "Anusha", startTime: "11", endTime: "12", bookingTimeStamp: "2023-08-31T06:30:37.003Z" }
+```
+
+- Subsequently, the record with the same resource name and time slot is then altered in the ‘allResources’ collection by changing the value of the ‘available’ field from "1" to "0". The following is the updated record for the same example:
+
+```JavaScript
+{ resource: "Badminton", startTime: "11", endTime: "12", date: "31/08/2023", available: "0" }
+```
+
+6. **deleteBookings**
+
+- This feature allows admins to clear out all bookings associated with a resource when they decide to delete that resource. As a result, any previous bookings made by clients for that resource will be erased.
+
+7. **getAllResources**
+
+- This endpoint is used to fetch all the records from the ‘allResources’ collection.
+
+8. **getAvailableResources**
+
+- This endpoint retrieves all records from the 'allResources' collection where the 'available' field is set to '1'.
+
+9. **getUniqueAvailableResources**
+
+- On the client's page, this endpoint retrieves a list of unique available resources, which are then displayed on separate cards. This card can be tapped to book that resource with the desired time slot from the available set of time slots.
+- If all slots for a resource are booked, it won't be shown to the client on an card.
+
+10. **getUniqueExistingResources**
+
+- This endpoint serves a dual purpose:
+
+  1. **Admin Page**: It displays all created resources on separate cards. These cards provide options to either edit or delete the resource.
+
+  2. **Client Page**: It checks for the availability of existing resources that can be booked. If no unique existing resources are found, the client is informed that no resources currently exist.
+
+- It's important to note that **getUniqueExistingResources** differs from **getUniqueAvailableResources**. **getUniqueAvailableResources** is only called if there are any existing resources which is determined by **getUniqueExistingResources**.
+
+11. **getAllBookings**
+
+- On the admin page, this endpoint is utilized to access and view all the bookings made by clients.
+
+12. **getUniqueResourcesBooked**
+
+- This endpoint serves the purpose of retrieving all the unique resources that have been booked. Each resource is then presented in a separate accordion on the admin page. When the admin interacts with an accordion, they can view the bookings specifically made for that resource. These bookings are filtered using the data retrieved by getAllBookings for that particular resource.
+
+13. **userBookings**
+
+- This endpoint is used to retrieve the bookings of a specific user, which are subsequently displayed in a table on the user's ‘My Bookings’ page.
+
+14. **getFlatNumber**
+
+- This endpoint is triggered upon user login to fetch their flat details. However, it is not invoked if the user has just signed up. The retrieved flat information is used when the user is booking resources.
 
 #### Database Layer
 
@@ -70,3 +154,17 @@ As the name suggests, this layer consists of the database, ‘resourceBooking’
 - allResources
 - bookings
 - users
+
+{' '}
+
+<p align="center">
+  <Image
+    alt={`Database schema`}
+    src={`/static/images/projects/resource booking app/database.jpg`}
+    width={580}
+    height={220}
+    priority
+  />
+</p>
+
+### Auth0 Integration
