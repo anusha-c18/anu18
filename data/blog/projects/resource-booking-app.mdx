@@ -8,22 +8,69 @@ summary: 'Resource Booking Made Easy!'
 
 ## Contents
 
-- [👋 Introduction](#Introduction)
-- [🔑 Key Features](#key-features)
-- [🛠️ Tech Stack](#tech)
-- [🏗️ System Architecture](#architecture)
-  - [🎨 Presentation Layer](#PresentationLayer)
-  - [⚙️ Application Layer](#ApplicationLayer)
-  - [🗃️ Database Layer](#DatabaseLayer)
-- [🔒 Seamless Auth0 Integration for User Authentication and Authorization](#Auth0)
-  - [🔐 Securing Endpoints](#SecuringEndpoints)
-  - [🛡️ Role-Based Access Control](#RBAC)
-  - [🚧 Integrating Secure Endpoints with RBAC](#SecuringRBAC)
-  - [🚪 Integrating Auth0 User Login](#Login)
-- [🚫 Securing Pages from Unauthorized Access via URL Manipulation](#url)
-- [✨ Additional Exciting Features ](#add)
-- [🔗 Links](#Links)
-- [🏁 Conclusion](#Conclusion)
+- <a href="#Introduction" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+    👋 Introduction
+  </a>
+
+- <a href="#key-features" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+    🔑 Key Features
+  </a>
+
+- <a href="#tech" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+    🛠️ Tech Stack
+  </a>
+
+- <a href="#architecture" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+    🏗️ System Architecture
+  </a>
+
+  - <a href="#PresentationLayer" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+      🎨 Presentation Layer
+    </a>
+
+  - <a href="#ApplicationLayer" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+      ⚙️ Application Layer
+    </a>
+
+  - <a href="#DatabaseLayer" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+      🗃️ Database Layer
+    </a>
+
+- <a href="#Auth0" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+    🔒 Seamless Auth0 Integration for User Authentication and Authorization
+  </a>
+
+  - <a href="#SecuringEndpoints" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+      🔐 Securing Endpoints
+    </a>
+
+  - <a href="#RBAC" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+      🛡️ Role-Based Access Control
+    </a>
+
+  - <a href="#SecuringRBAC" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+      🚧 Integrating Secure Endpoints with RBAC
+    </a>
+
+  - <a href="#Login" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+      🚪 Integrating Auth0 User Login
+    </a>
+
+- <a href="#url" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+    🚫 Securing Pages from Unauthorized Access via URL Manipulation
+  </a>
+
+- <a href="#add" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+    ✨ Additional Exciting Features
+  </a>
+
+- <a href="#Links" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+    🔗 Links
+  </a>
+
+- <a href="#Conclusion" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+    🏁 Conclusion
+  </a>
 
 ## Introduction <a id="Introduction"></a>
 
@@ -100,7 +147,7 @@ This layer consists of the RESTful API designed with several secure endpoints as
 
 - If a newly registered user is detected, it activates a modal to gather the user's flat number and subsequently stores the user's data in the database's user collection. For instance, consider a new user named ‘Anusha’ residing in flat C602. In this case, the following details are added to the collection:
 
-```JavaScript
+```js
 { name: "Anusha", flat: "C602" }
 ```
 
@@ -108,7 +155,7 @@ This layer consists of the RESTful API designed with several secure endpoints as
 
 - When an admin completes the resource details, this endpoint is invoked to add the resource to the allResources collection. The admin provides information including the resource's name, start time, and end time. This endpoint generates multiple resource records, each spanning one hour, commencing at the specified start time and ending at the resource's designated end time. Suppose an admin wants to create a new resource named ‘Conference Room A’ available from 9:00 AM to 11:00 AM. When they call the createNewResource endpoint with these details, the system generates multiple records as follows:
 
-```JavaScript
+```js
 { resource: "Conference Room A", startTime: "9", endTime: "10", date: "09/09/2023", available: "1" }
 { resource: "Conference Room A", startTime: "10", endTime: "11", date: "09/09/2023", available: "1" }
 ```
@@ -123,13 +170,13 @@ This layer consists of the RESTful API designed with several secure endpoints as
 
 - This endpoint is evoked when a client books a resource from the available set of resources. The following sample record is generated and pushed into the ‘bookings’ collection:
 
-```JavaScript
+```js
 { resource: "Badminton", flat: "B-501", name: "Anusha", startTime: "11", endTime: "12", bookingTimeStamp: "2023-08-31T06:30:37.003Z" }
 ```
 
 - Subsequently, the record with the same resource name and time slot is then altered in the ‘allResources’ collection by changing the value of the ‘available’ field from "1" to "0". The following is the updated record for the same example:
 
-```JavaScript
+```js
 { resource: "Badminton", startTime: "11", endTime: "12", date: "31/08/2023", available: "0" }
 ```
 
@@ -195,7 +242,7 @@ As the name suggests, this layer consists of the database, ‘resourceBooking’
   <Image
     alt={`Database schema`}
     src={`/static/images/projects/resource booking app/database.jpg`}
-    width={580}
+    width={550}
     height={220}
     priority
   />
@@ -235,8 +282,8 @@ In summary, this code sets up a middleware (`checkJwt`) applied to protect the A
 - While `checkJwt` is responsible for verifying the authentication and authorization of users to access API endpoints, `checkScopes` is a middleware function used to confirm if the user has the necessary role to access that endpoint.
 - In simpler terms, an admin can solely execute admin-related tasks, while a client is restricted to client-specific functions.
 
-```JavaScript
-const checkScopes = requiredScopes("read:admin");
+```js
+const checkScopes = requiredScopes('read:admin');
 ```
 
 - The above code snippet showcases the middleware which is then used within the router middleware, ensuring that API calls are appropriately directed to the main controller function.
@@ -261,8 +308,8 @@ This meticulous process safeguards against unauthorized access to endpoints thro
 
 - Now that we have seen the independent functionalities of the `checkScopes` and `checkJwt` middleware functions, here's a code snippet that showcases how both of these security layers are integrated within the context of API requests.
 
-```JavaScript
-router.route("/createNewResource").post(checkJwt, checkScopes, controller.createNewResource);
+```js
+router.route('/createNewResource').post(checkJwt, checkScopes, controller.createNewResource);
 ```
 
 - As demonstrated above, these middleware functions are combined into the router middleware. In the above code snippet, the endpoint that is being invoked is the `createNewResource` endpoint, a function exclusively accessible to admins.
@@ -280,7 +327,7 @@ I set up the frontend of the application using Auth0's platform, specifically ut
 
 Within the UserContext.jsx file, I destructured the following objects by invoking the `useAuth0()` hook imported from the `@auth0/auth0-react` package:
 
-```javascript
+```js
 const { isAuthenticated, loginWithRedirect, logout, user, isLoading } = useAuth0();
 ```
 
@@ -322,7 +369,7 @@ const { myUser, loginWithRedirect, logout, isLoading } = useUserContext();
 
 - When a user clicks the 'Go to Login' button, it triggers the `loginPage()` function, which in turn invokes the `loginWithRedirect()` function. This function redirects the user to the login/sign-up page configured using Universal Login on the Auth0 platform as shown in the code snippet below.
 
-```jsx
+```js
 const loginPage = () => {
   loginWithRedirect();
 };
@@ -342,7 +389,7 @@ const loginPage = () => {
 
 - Components designed for clients are rendered within the `Client.jsx` file, whereas those designed for admins reside in the `Admin.jsx` file. These client and admin components are subsequently integrated into the `RootLayout.jsx` file via the `Outlet` component, imported from the `react-router-dom` package as shown below:
 
-```jsx
+```js
 function RootLayout() {
   const { myUser } = useUserContext();
   return (
@@ -357,7 +404,7 @@ function RootLayout() {
 
 - Within the `Client.jsx` file, content is dynamically rendered based on the user's role, which is extracted from the `role` state that is deconstructed from the `context.jsx` file.
 
-```jsx
+```js
 if (role === 'client') {
   return <>/*Client Page*/</>;
 } else {
@@ -375,7 +422,7 @@ if (role === 'client') {
 
 - Lastly, as seen in the above RootLayout function, the navigation bar's visibility depends on the user's authentication status, determined by the `myUser` state. This approach effectively prevents any blatant redirection attempts to other pages by unauthenticated users. Furthermore, the navigation bar is dynamically set based on the user's role when the user is authenticated, as shown below:
 
-```jsx
+```js
 const navItems = role === 'admin' ? adminNavItems : clientNavItems;
 ```
 
@@ -393,13 +440,13 @@ const navItems = role === 'admin' ? adminNavItems : clientNavItems;
 
 The following video depicts all the enlisted features in action:
 
-<iframe
-  width="560"
-  height="315"
-  src="https://www.youtube.com/embed/nAWg49P0OWs?mute=1"
-  frameBorder="0"
-  allowFullScreen
-></iframe>
+  <iframe
+  className="sm:w-3/5 md:w-full sm:h-32 md:h-64"
+    src="https://www.youtube.com/embed/nAWg49P0OWs?mute=1"
+    frameBorder="0"
+    allowFullScreen
+
+> </iframe>
 
 ---
 
