@@ -82,7 +82,7 @@ As I began outlining the project's requirements and architecting its structure, 
 
 ### Presentation Layer <a id="PresentationLayer"></a>
 
-- Within this layer, you'll find the frontend accessible to various user types, including both clients and admins. The user's access is directed to specific views based on their assigned role.
+- Within this layer, you'll find the frontend accessible to two user types which include both clients and admins. The user's access is directed to specific views based on their assigned role.
 
 - For clients, the user interface offers three main options: logging out, accessing the ‘My Bookings’ page to view current and previous bookings, or making reservations on the ‘Available Resources’ page.
 
@@ -227,7 +227,7 @@ const checkJwt = auth({
   - The `algorithm` property specifies the cryptographic algorithm for JWT signature verification, employing RS256 (RSA Signature with SHA-256) in this case.
   - The `jwks_uri` property points to the URL where the JSON Web Key Set (JWKS) resides. JWKS verifies the digital signatures of the JWTs.
 
-In summary, this code sets up a middleware (`checkJwt`) applied to protect the API endpoints within the application using JSON Web Tokens (JWTs). This ensures that only authenticated and authorized users can access secured resources.
+In summary, this code sets up a middleware (`checkJwt`) applied to protect the API endpoints within the application using JSON Web Tokens (JWTs). This ensures that only authenticated users can access secured resources.
 
 ### Role-Based Access Control <a id="RBAC"></a>
 
@@ -278,7 +278,7 @@ When users access the Resource Booking app's frontend via the URL, the initial s
 
 I set up the frontend of the application using Auth0's platform, specifically utilizing the Universal Login feature, and seamlessly incorporated login options through two social connections: Google and Gmail.
 
-Within the UserContext.jsx file, I destructured the following objects by invoking the `useAuth0()` function imported from the `@auth0/auth0-react` package:
+Within the UserContext.jsx file, I destructured the following objects by invoking the `useAuth0()` hook imported from the `@auth0/auth0-react` package:
 
 ```javascript
 const { isAuthenticated, loginWithRedirect, logout, user, isLoading } = useAuth0();
@@ -304,7 +304,7 @@ Within the Login.jsx file, the following values are destructured from the UserCo
 const { myUser, loginWithRedirect, logout, isLoading } = useUserContext();
 ```
 
-- The login page dynamically displays either the 'Go to Login' button when the user is already authenticated or the 'Logout' button when the user is not logged in. This behavior is determined by checking the value of the `myUser` state as shown in the code snippet below. This can also be achieved using the `isAuthenticated` state.
+- The login page dynamically displays either the 'Logout' button when the user is already authenticated or the 'Go to Login' button when the user is not logged in. This behavior is determined by checking the value of the `myUser` state as shown in the code snippet below. This can also be achieved using the `isAuthenticated` state.
 
 ```jsx
 {
@@ -359,9 +359,7 @@ function RootLayout() {
 
 ```jsx
 if (role === 'client') {
-  return <*>
-  /*Client Page*/
-  </>;
+  return <>/*Client Page*/</>;
 } else {
   return (
     <>
@@ -370,6 +368,8 @@ if (role === 'client') {
   );
 }
 ```
+
+- If an unauthenticated user tries to access the client/admin page then the user is informed that they don't have access to that page as seen in the above code snippet.
 
 - Similarly, the admin page's security is upheld by checking whether the user's role corresponds to that of an admin and subsequently executing conditional content rendering.
 
@@ -410,7 +410,7 @@ Feel free to give it a spin:
 - Access the frontend at https://resource-booking-frontend.vercel.app/
 - If you think you can outsmart the secure RESTful API, try your luck at https://resource-booking-api.vercel.app/
 
-For all the behind-the-scenes action, explore the GitHub Repository at https://github.com/anusha-c18/resource-booking-app"
+For all the behind-the-scenes action, explore the GitHub Repository at https://github.com/anusha-c18/resource-booking-app
 
 ---
 
