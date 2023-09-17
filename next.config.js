@@ -8,10 +8,10 @@ const ContentSecurityPolicy = `
   script-src 'self' 'unsafe-eval' 'unsafe-inline' *.googletagmanager.com *.google-analytics.com giscus.app;
   style-src 'self' 'unsafe-inline' *.googleapis.com;
   img-src * blob: data:;
-  media-src 'none';
+  media-src * youtube.com www.youtube.com;
   connect-src *;
   font-src 'self';
-  frame-src giscus.app youtube.com www.youtube.com facebook.com www.facebook.com;
+  frame-src www.youtube.com;
 `;
 
 const securityHeaders = [
@@ -28,7 +28,7 @@ const securityHeaders = [
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
   {
     key: 'X-Frame-Options',
-    value: 'DENY',
+    value: 'SAMEORIGIN',
   },
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
   {

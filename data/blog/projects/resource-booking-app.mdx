@@ -21,7 +21,7 @@ summary: 'Resource Booking Made Easy!'
   - [🚧 Integrating Secure Endpoints with RBAC](#SecuringRBAC)
   - [🚪 Integrating Auth0 User Login](#Login)
 - [🚫 Securing Pages from Unauthorized Access via URL Manipulation](#url)
-- [✨ Additional Exciting functionalities ](#add)
+- [✨ Additional Exciting Features ](#add)
 - [🔗 Links](#Links)
 - [🏁 Conclusion](#Conclusion)
 
@@ -92,11 +92,11 @@ As I began outlining the project's requirements and architecting its structure, 
 
 This layer consists of the RESTful API designed with several secure endpoints as detailed in the image.
 
-1. **checkUser**
+#### 1. **checkUser**
 
 - This endpoint is used to check if this is the first login of the user and assigns an appropriate role to the user.
 
-2. **createUser**
+#### 2. **createUser**
 
 - If a newly registered user is detected, it activates a modal to gather the user's flat number and subsequently stores the user's data in the database's user collection. For instance, consider a new user named ‘Anusha’ residing in flat C602. In this case, the following details are added to the collection:
 
@@ -104,7 +104,7 @@ This layer consists of the RESTful API designed with several secure endpoints as
 { name: "Anusha", flat: "C602" }
 ```
 
-3. **createNewResource**
+#### 3. **createNewResource**
 
 - When an admin completes the resource details, this endpoint is invoked to add the resource to the allResources collection. The admin provides information including the resource's name, start time, and end time. This endpoint generates multiple resource records, each spanning one hour, commencing at the specified start time and ending at the resource's designated end time. Suppose an admin wants to create a new resource named ‘Conference Room A’ available from 9:00 AM to 11:00 AM. When they call the createNewResource endpoint with these details, the system generates multiple records as follows:
 
@@ -115,11 +115,11 @@ This layer consists of the RESTful API designed with several secure endpoints as
 
 - This allows users to book ‘Conference Room A’ for one-hour slots within the specified time frame.
 
-4. **deleteResource**
+#### 4. **deleteResource**
 
 - This endpoint is used by the admin to delete an existing resource from the ‘allResources’ collection. It deletes all the records of the resource by matching the field ‘resource’.
 
-5. **insertBooking**
+#### 5. **insertBooking**
 
 - This endpoint is evoked when a client books a resource from the available set of resources. The following sample record is generated and pushed into the ‘bookings’ collection:
 
@@ -133,24 +133,24 @@ This layer consists of the RESTful API designed with several secure endpoints as
 { resource: "Badminton", startTime: "11", endTime: "12", date: "31/08/2023", available: "0" }
 ```
 
-6. **deleteBookings**
+#### 6. **deleteBookings**
 
 - This feature allows admins to clear out all bookings associated with a resource when they decide to delete that resource. As a result, any previous bookings made by clients for that resource will be erased.
 
-7. **getAllResources**
+#### 7. **getAllResources**
 
 - This endpoint is used to fetch all the records from the ‘allResources’ collection.
 
-8. **getAvailableResources**
+#### 8. **getAvailableResources**
 
 - This endpoint retrieves all records from the 'allResources' collection where the 'available' field is set to '1'.
 
-9. **getUniqueAvailableResources**
+#### 9. **getUniqueAvailableResources**
 
 - On the client's page, this endpoint retrieves a list of unique available resources, which are then displayed on separate cards. This card can be tapped to book that resource with the desired time slot from the available set of time slots.
 - If all slots for a resource are booked, it won't be shown to the client on an card.
 
-10. **getUniqueExistingResources**
+#### 10. **getUniqueExistingResources**
 
 - This endpoint serves a dual purpose:
 
@@ -160,23 +160,23 @@ This layer consists of the RESTful API designed with several secure endpoints as
 
 - It's important to note that **getUniqueExistingResources** differs from **getUniqueAvailableResources**. The endpoint **getUniqueAvailableResources** is only called if there are any existing resources which is determined by **getUniqueExistingResources**.
 
-11. **getAllBookings**
+#### 11. **getAllBookings**
 
 - On the admin page, this endpoint is utilized to access and view all the bookings made by clients.
 
-12. **getUniqueResourcesBooked**
+#### 12. **getUniqueResourcesBooked**
 
 - This endpoint serves the purpose of retrieving all the unique resources that have been booked. Each resource is then presented in a separate accordion on the admin page. When the admin interacts with an accordion, they can view the bookings specifically made for that resource. These bookings are filtered using the data retrieved by getAllBookings for that particular resource.
 
-13. **userBookings**
+#### 13. **userBookings**
 
 - This endpoint is used to retrieve the bookings of a specific user, which are subsequently displayed in a table on the user's ‘My Bookings’ page.
 
-14. **getFlatNumber**
+#### 14. **getFlatNumber**
 
 - This endpoint is triggered upon user login to fetch their flat details. However, it is not invoked if the user has just signed up. The retrieved flat information is used when the user is booking resources.
 
-15. **mainController**
+#### 15. **mainController**
 
 - The main controller plays a crucial role in the system, ensuring that API calls are seamlessly routed to the appropriate helper functions listed above, all based on the specified route.
 - To add an extra layer of security, I engineered a router middleware to verify the user's access token and check if the user has the necessary permissions to access a given path before invoking the main controller function.
@@ -381,7 +381,7 @@ const navItems = role === 'admin' ? adminNavItems : clientNavItems;
 
 ---
 
-## Additional Exciting functionalities <a id="add"></a>
+## Additional Exciting Features <a id="add"></a>
 
 1. Skeleton Loading Animation
 
@@ -390,6 +390,16 @@ const navItems = role === 'admin' ? adminNavItems : clientNavItems;
 3. Button Disabling During Database Operations
 
 4. Cool animations using Framer Motion
+
+The following video depicts all the enlisted features in action:
+
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/nAWg49P0OWs?mute=1"
+  frameBorder="0"
+  allowFullScreen
+></iframe>
 
 ---
 
