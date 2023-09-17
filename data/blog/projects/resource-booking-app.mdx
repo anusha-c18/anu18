@@ -1,7 +1,7 @@
 ---
 title: Resource Booking App
 date: '2023-09-15'
-tags: ['Web App', 'Mobile First Design', 'Project', 'JavaScript']
+tags: ['Web App', 'Auth0', 'Mobile First Design', 'Project', 'JavaScript']
 draft: false
 summary: 'Resource Booking Made Easy!'
 ---
@@ -9,6 +9,8 @@ summary: 'Resource Booking Made Easy!'
 ## Introduction
 
 Have you ever found yourself in a big apartment complex with tons of amenities like gyms, pools, and shared spaces? It sounds awesome, but there's a catch – it's often a hassle to actually use these resources because everyone's vying for them. Trying to book a spot or equipment can turn into a real headache when everyone's competing for the same things. It hit me one day – there's got to be a simpler way to sort this out. That's when I got the idea for something I believe could change the game: a Resource Booking App.
+
+---
 
 ## Key Features
 
@@ -18,6 +20,8 @@ As I began outlining the project's requirements and architecting its structure, 
 - Login and different views for two types of users - Client and Admin
 - Admin’s functionalities - Create, read, update, and delete (CRUD) resources
 - Client’s functionalities - Book resources and view current and previous bookings
+
+---
 
 ## Tech Stack
 
@@ -40,6 +44,8 @@ As I began outlining the project's requirements and architecting its structure, 
 - **Database**: Designed a database consisting of three distinct collections. This database was securely hosted on a cluster within MongoDB Atlas.
 
 - **Authentication and Authorization**: Implemented Auth0 for authentication and authorization - creating secure endpoints and Role-Based Access Control.
+
+---
 
 ## System Architecture
 
@@ -151,6 +157,11 @@ This layer consists of the RESTful API designed with several secure endpoints as
 
 - This endpoint is triggered upon user login to fetch their flat details. However, it is not invoked if the user has just signed up. The retrieved flat information is used when the user is booking resources.
 
+15. **mainController**
+
+- The main controller plays a crucial role in the system, ensuring that API calls are seamlessly routed to the appropriate helper functions listed above, all based on the specified route.
+- To add an extra layer of security, I engineered a router middleware to verify the user's access token and check if the user has the necessary permissions to access a given path before invoking the main controller function.
+
 ### Database Layer
 
 As the name suggests, this layer consists of the database, ‘resourceBooking’, with 3 different collections:
@@ -171,4 +182,182 @@ As the name suggests, this layer consists of the database, ‘resourceBooking’
   />
 </p>
 
-## Auth0 Integration
+---
+
+## Seamless Auth0 Integration for User Authentication and Authorization
+
+### Securing Endpoints
+
+- To enhance the security of the endpoints, each one is safeguarded by the 'checkJwt' middleware, which is executed before calling the relevant function within the main controller.
+- This security measure validates that the access token provided in the API call header is issued by Auth0 for the specific domain and audience designated for the API.
+
+```jsx
+const checkJwt = auth({
+  issuerBaseURL: process.env.AUTH0_BASE_URL,
+  audience: process.env.AUTH0_AUDIENCE,
+  algorithm: ['RS256'],
+  jwks_uri: 'https://dev-1k4isffw1z8aw3io.us.auth0.com/.well-known/jwks.json',
+});
+```
+
+- `checkJwt` serves as a middleware function designed to protect specific routes or endpoints in the application.
+- The `auth()` function, provided by auth0, configures the `checkJwt` middleware.
+- Within the configuration object passed to `auth()`, you'll find properties such as:
+  - `issuerBaseURL`, which specifies the authentication service's base URL for issuer verification i.e. the base URL of my tenant which issues these tokens.
+  - `audience`, which defines the intended audience for JWT validation i.e. nothing but the API URL which consumes these tokens.
+  - The `algorithm` property specifies the cryptographic algorithm for JWT signature verification, employing RS256 (RSA Signature with SHA-256) in this case.
+  - The `jwks_uri` property points to the URL where the JSON Web Key Set (JWKS) resides. JWKS verifies the digital signatures of the JWTs.
+
+In summary, this code sets up a middleware (`checkJwt`) applied to protect the API endpoints within the application using JSON Web Tokens (JWTs). This ensures that only authenticated and authorized users can access secured resources.
+
+### Role-Based Access Control
+
+- As previously mentioned, the application adopts Role-Based Access Control (RBAC), defining two distinct user roles: Client and Admin.
+- While `checkJwt` is responsible for verifying the authentication and authorization of users to access API endpoints, `checkScopes` is a middleware function used to confirm if the user has the necessary role to access that endpoint.
+- In simpler terms, an admin can solely execute admin-related tasks, while a client is restricted to client-specific functions.
+
+```JavaScript
+const checkScopes = requiredScopes("read:admin");
+```
+
+- The above code snippet showcases the middleware which is then used within the router middleware, ensuring that API calls are appropriately directed to the main controller function.
+- The `requiredScopes()` function, provided by Auth0, checks whether the access token contains the specified scope provided as an argument to the function. This functionality is made possible as I configured the access tokens to include embedded roles.
+- Illustrated below, are the endpoints accessible exclusively to clients, those exclusive to admins, and those accessible to both clients and admins.
+
+{' '}
+
+<p align="center">
+  <Image
+    alt={`Database schema`}
+    src={`/static/images/projects/resource booking app/RBAC.jpg`}
+    width={580}
+    height={220}
+    priority
+  />
+</p>
+
+This meticulous process safeguards against unauthorized access to endpoints through direct URL manipulation, effectively preventing users from performing admin or client specific functions without proper privileges.
+
+### Integrating Secure Endpoints with RBAC
+
+- Now that we have seen the independent functionalities of the `checkScopes` and `checkJwt` middleware functions, here's a code snippet that showcases how both of these security layers are integrated within the context of API requests.
+
+```JavaScript
+router.route("/createNewResource").post(checkJwt, checkScopes, controller.createNewResource);
+```
+
+- As demonstrated above, these middleware functions are combined into the router middleware. In the above code snippet, the endpoint that is being invoked is the `createNewResource` endpoint, a function exclusively accessible to admins.
+- The sequence in which these middleware functions are arranged is important:
+
+  - Initially, it verifies user authentication via the `checkJwt` middleware function,
+  - Subsequently, it verifies user authorization as it checks whether the user has the required scope through the `checkScopes` middleware function,
+  - Finally, it redirects the flow to the `createNewResource` function, utilizing the main controller object denoted as `controller`.
+
+### Integrating Auth0 User Login
+
+When users access the Resource Booking app's frontend via the URL, the initial screen greets them and asks the user to log in by clicking the 'Go to Login' button.
+
+I set up the frontend of the application using Auth0's platform, specifically utilizing the Universal Login feature, and seamlessly incorporated login options through two social connections: Google and Gmail.
+
+Within the UserContext.jsx file, I destructured the following objects by invoking the `useAuth0()` function imported from the `@auth0/auth0-react` package:
+
+```javascript
+const { isAuthenticated, loginWithRedirect, logout, user, isLoading } = useAuth0();
+```
+
+- `isAuthenticated` is a boolean that evaluates to true when the user has completed the login process and false when the user has not. This distinction is vital as it prevents unauthorized users from accessing the rest of the application via URL manipulation.
+
+- A state object called 'myUser' is also created. Its value is determined on the basis of the value of `isAuthenticated` and is set using the `setMyUser(user)` function in cases where the user has successfully logged in (`isAuthenticated===true`), and it is set to `setMyUser(null)` when the user has not yet logged in (`isAuthenticated===false`).
+
+- `isLoading` is a boolean flag that signifies whether data is currently being fetched from Auth0 and is also used to manage any potential errors during this process.
+
+- The `logout()` function is utilized when an authenticated user wants to log out of the web application.
+
+- The `UserContext.Provider` exports the following values, which play a pivotal role in several sections of the application:
+
+```jsx
+value={{ myUser, loginWithRedirect, logout, isLoading, }}
+```
+
+Within the Login.jsx file, the following values are destructured from the UserContext:
+
+```jsx
+const { myUser, loginWithRedirect, logout, isLoading } = useUserContext();
+```
+
+- The login page dynamically displays either the 'Go to Login' button when the user is already authenticated or the 'Logout' button when the user is not logged in. This behavior is determined by checking the value of the `myUser` state as shown in the code snippet below. This can also be achieved using the `isAuthenticated` state.
+
+```jsx
+{
+  myUser ? (
+    <button className="go" onClick={() => logout({ returnTo: window.location.origin })}>
+      Logout
+    </button>
+  ) : (
+    <button className="go" onClick={loginPage}>
+      Go to Login
+    </button>
+  );
+}
+```
+
+- When a user clicks the 'Go to Login' button, it triggers the `loginPage()` function, which in turn invokes the `loginWithRedirect()` function. This function redirects the user to the login/sign-up page configured using Universal Login on the Auth0 platform as shown in the code snippet below.
+
+```jsx
+const loginPage = () => {
+  loginWithRedirect();
+};
+```
+
+- A logged-in user can initiate the logout process by clicking the 'Logout' button. This action invokes the `logout` function, subsequently redirecting the user to the domain specified in the URL. An option to logout is also present in the navbar for ease of access.
+
+---
+
+## Securing Pages from Unauthorized Access via URL Manipulation
+
+- A vital aspect of ensuring the security of a web application is to block attempts by unauthorized users to access sensitive pages through URL manipulation. When anyone with the correct URL and path can gain entry to a page, it can lead to a lot of issues, including clients gaining unwarranted access to admin-only pages or making unauthorized API calls.
+
+- Although the backend is secured using the methods discussed previously, the frontend too, has to be secure and prohibit access to unauthenticated or unauthorized users.
+
+- To tackle this challenge, I have implemented a page routing mechanism using React Router. Within this routing framework, I've established a RootLayout responsible for rendering components based on the user's role.
+
+- Components designed for clients are rendered within the `Client.jsx` file, whereas those designed for admins reside in the `Admin.jsx` file. These client and admin components are subsequently integrated into the `RootLayout.jsx` file via the `Outlet` component, imported from the `react-router-dom` package as shown below:
+
+```jsx
+function RootLayout() {
+  const { myUser } = useUserContext();
+  return (
+    <>
+      {myUser != null ? <NavBar /> : null}
+      <Toaster />
+      <Outlet></Outlet>
+    </>
+  );
+}
+```
+
+- Within the `Client.jsx` file, content is dynamically rendered based on the user's role, which is extracted from the `role` state that is deconstructed from the `context.jsx` file.
+
+```jsx
+if (role === 'client') {
+  return <*>
+  /*Client Page*/
+  </>;
+} else {
+  return (
+    <>
+      <p className="accessDenied">Sorry, you don't have access to this page!</p>
+    </>
+  );
+}
+```
+
+- Similarly, the admin page's security is upheld by checking whether the user's role corresponds to that of an admin and subsequently executing conditional content rendering.
+
+- Lastly, as seen in the above RootLayout function, the navigation bar's visibility depends on the user's authentication status, determined by the `myUser` state. This approach effectively prevents any blatant redirection attempts to other pages by unauthenticated users. Furthermore, the navigation bar is dynamically set based on the user's role when the user is authenticated, as shown below:
+
+```jsx
+const navItems = role === 'admin' ? adminNavItems : clientNavItems;
+```
+
+---
