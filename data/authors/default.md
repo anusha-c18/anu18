@@ -89,9 +89,7 @@ Tech Stack : `Node.js` `Express.js` `Google Maps API` `RESTful API` `Microservic
 
 ---
 
-## Achievements
-
-## Hackathons & Awards
+## Achievements - Hackathons & Awards <a id="achievements"></a>
 
 ### 1. Best Outgoing Student
 

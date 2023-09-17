@@ -6,13 +6,32 @@ draft: false
 summary: 'Resource Booking Made Easy!'
 ---
 
-## Introduction
+## Contents
+
+- [👋 Introduction](#Introduction)
+- [🔑 Key Features](#key-features)
+- [🛠️ Tech Stack](#tech)
+- [🏗️ System Architecture](#architecture)
+  - [🎨 Presentation Layer](#PresentationLayer)
+  - [⚙️ Application Layer](#ApplicationLayer)
+  - [🗃️ Database Layer](#DatabaseLayer)
+- [🔒 Seamless Auth0 Integration for User Authentication and Authorization](#Auth0)
+  - [🔐 Securing Endpoints](#SecuringEndpoints)
+  - [🛡️ Role-Based Access Control](#RBAC)
+  - [🚧 Integrating Secure Endpoints with RBAC](#SecuringRBAC)
+  - [🚪 Integrating Auth0 User Login](#Login)
+- [🚫 Securing Pages from Unauthorized Access via URL Manipulation](#url)
+- [✨ Additional Exciting functionalities ](#add)
+- [🔗 Links](#Links)
+- [🏁 Conclusion](#Conclusion)
+
+## Introduction <a id="Introduction"></a>
 
 Have you ever found yourself in a big apartment complex with tons of amenities like gyms, pools, and shared spaces? It sounds awesome, but there's a catch – it's often a hassle to actually use these resources because everyone's vying for them. Trying to book a spot or equipment can turn into a real headache when everyone's competing for the same things. It hit me one day – there's got to be a simpler way to sort this out. That's when I got the idea for something I believe could change the game: a Resource Booking App.
 
 ---
 
-## Key Features
+## Key Features <a id="key-features"></a>
 
 As I began outlining the project's requirements and architecting its structure, I aimed to incorporate specific features and platforms to enhance my skill set. Here are the project's key objectives that I set out to accomplish:
 
@@ -23,7 +42,7 @@ As I began outlining the project's requirements and architecting its structure, 
 
 ---
 
-## Tech Stack
+## Tech Stack <a id="tech"></a>
 
 {' '}
 
@@ -47,7 +66,7 @@ As I began outlining the project's requirements and architecting its structure, 
 
 ---
 
-## System Architecture
+## System Architecture <a id="architecture"></a>
 
 {' '}
 
@@ -61,7 +80,7 @@ As I began outlining the project's requirements and architecting its structure, 
   />
 </p>
 
-### Presentation Layer
+### Presentation Layer <a id="PresentationLayer"></a>
 
 - Within this layer, you'll find the frontend accessible to various user types, including both clients and admins. The user's access is directed to specific views based on their assigned role.
 
@@ -69,7 +88,7 @@ As I began outlining the project's requirements and architecting its structure, 
 
 - Admins have a trio of choices as well: logging out, viewing client bookings on the ‘Resource Overview’ page, or engaging in CRUD operations within the ‘Resource Management’ page.
 
-### Application Layer
+### Application Layer <a id="ApplicationLayer"></a>
 
 This layer consists of the RESTful API designed with several secure endpoints as detailed in the image.
 
@@ -162,7 +181,7 @@ This layer consists of the RESTful API designed with several secure endpoints as
 - The main controller plays a crucial role in the system, ensuring that API calls are seamlessly routed to the appropriate helper functions listed above, all based on the specified route.
 - To add an extra layer of security, I engineered a router middleware to verify the user's access token and check if the user has the necessary permissions to access a given path before invoking the main controller function.
 
-### Database Layer
+### Database Layer <a id="DatabaseLayer"></a>
 
 As the name suggests, this layer consists of the database, ‘resourceBooking’, with 3 different collections:
 
@@ -184,9 +203,9 @@ As the name suggests, this layer consists of the database, ‘resourceBooking’
 
 ---
 
-## Seamless Auth0 Integration for User Authentication and Authorization
+## Seamless Auth0 Integration for User Authentication and Authorization <a id="Auth0"></a>
 
-### Securing Endpoints
+### Securing Endpoints <a id="SecuringEndpoints"></a>
 
 - To enhance the security of the endpoints, each one is safeguarded by the 'checkJwt' middleware, which is executed before calling the relevant function within the main controller.
 - This security measure validates that the access token provided in the API call header is issued by Auth0 for the specific domain and audience designated for the API.
@@ -201,7 +220,7 @@ const checkJwt = auth({
 ```
 
 - `checkJwt` serves as a middleware function designed to protect specific routes or endpoints in the application.
-- The `auth()` function, provided by auth0, configures the `checkJwt` middleware.
+- The `auth()` function, provided by Auth0, configures the `checkJwt` middleware.
 - Within the configuration object passed to `auth()`, you'll find properties such as:
   - `issuerBaseURL`, which specifies the authentication service's base URL for issuer verification i.e. the base URL of my tenant which issues these tokens.
   - `audience`, which defines the intended audience for JWT validation i.e. nothing but the API URL which consumes these tokens.
@@ -210,7 +229,7 @@ const checkJwt = auth({
 
 In summary, this code sets up a middleware (`checkJwt`) applied to protect the API endpoints within the application using JSON Web Tokens (JWTs). This ensures that only authenticated and authorized users can access secured resources.
 
-### Role-Based Access Control
+### Role-Based Access Control <a id="RBAC"></a>
 
 - As previously mentioned, the application adopts Role-Based Access Control (RBAC), defining two distinct user roles: Client and Admin.
 - While `checkJwt` is responsible for verifying the authentication and authorization of users to access API endpoints, `checkScopes` is a middleware function used to confirm if the user has the necessary role to access that endpoint.
@@ -238,7 +257,7 @@ const checkScopes = requiredScopes("read:admin");
 
 This meticulous process safeguards against unauthorized access to endpoints through direct URL manipulation, effectively preventing users from performing admin or client specific functions without proper privileges.
 
-### Integrating Secure Endpoints with RBAC
+### Integrating Secure Endpoints with RBAC <a id="SecuringRBAC"></a>
 
 - Now that we have seen the independent functionalities of the `checkScopes` and `checkJwt` middleware functions, here's a code snippet that showcases how both of these security layers are integrated within the context of API requests.
 
@@ -253,7 +272,7 @@ router.route("/createNewResource").post(checkJwt, checkScopes, controller.create
   - Subsequently, it verifies user authorization as it checks whether the user has the required scope through the `checkScopes` middleware function,
   - Finally, it redirects the flow to the `createNewResource` function, utilizing the main controller object denoted as `controller`.
 
-### Integrating Auth0 User Login
+### Integrating Auth0 User Login <a id="Login"></a>
 
 When users access the Resource Booking app's frontend via the URL, the initial screen greets them and asks the user to log in by clicking the 'Go to Login' button.
 
@@ -313,7 +332,7 @@ const loginPage = () => {
 
 ---
 
-## Securing Pages from Unauthorized Access via URL Manipulation
+## Securing Pages from Unauthorized Access via URL Manipulation <a id="url"></a>
 
 - A vital aspect of ensuring the security of a web application is to block attempts by unauthorized users to access sensitive pages through URL manipulation. When anyone with the correct URL and path can gain entry to a page, it can lead to a lot of issues, including clients gaining unwarranted access to admin-only pages or making unauthorized API calls.
 
@@ -362,7 +381,7 @@ const navItems = role === 'admin' ? adminNavItems : clientNavItems;
 
 ---
 
-## Additional Exciting functionalities
+## Additional Exciting functionalities <a id="add"></a>
 
 1. Skeleton Loading Animation
 
@@ -374,7 +393,7 @@ const navItems = role === 'admin' ? adminNavItems : clientNavItems;
 
 ---
 
-## Links
+## Links <a id="Links"></a>
 
 Feel free to give it a spin:
 
@@ -385,8 +404,20 @@ For all the behind-the-scenes action, explore the GitHub Repository at https://g
 
 ---
 
-## Conclusion
+## Conclusion <a id="Conclusion"></a>
 
 The Resource Booking App combines robust security with user-friendly features, offering a seamless experience for both clients and admins. It's a step towards simplifying resource management in shared spaces. With some modifications, this project can easily adapt to create booking systems for a wide range of applications, from reserving movie tickets to powering an e-commerce platform. Its flexibility opens doors to endless possibilities in the world of web applications.
+
+{' '}
+
+<p align="center">
+  <Image
+    alt={`Database schema`}
+    src={`/static/images/projects/resource booking app/a.gif`}
+    width={580}
+    height={220}
+    priority
+  />
+</p>
 
 ---
