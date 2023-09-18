@@ -8,21 +8,35 @@ linkedin: https://www.linkedin.com/in/anusha18
 github: https://github.com/anusha-c18
 ---
 
-- [💼 Experience](#experience)
-- [💻 Projects](#projects)
-- [🥇 Achievements - Hackathons & Awards](#achievements)
-- [👩 Leadership](#leadership)
-- [📝 Publications](#publications)
-- [🤹🏼‍♂️ Skills](#skills)
-- [🎓 Education](#education)
+- <a href="#experience" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+    💼 Experience
+  </a>
+- <a href="#projects" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+    💻 Projects
+  </a>
+- <a href="#achievements" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+    🥇 Achievements - Hackathons & Awards
+  </a>
+- <a href="#leadership" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+    👩 Leadership
+  </a>
+- <a href="#publications" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+    📝 Publications
+  </a>
+- <a href="#skills" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+    🤹🏼‍♂️ Skills
+  </a>
+- <a href="#education" className="text-[#f26e84d9] no-underline dark:text-[#f26e84d9]">
+    🎓 Education
+  </a>
 
 ## Experience
 
-### 1. Software Engineering Intern @ **[Hewlett Packard Enterprise](https://www.hpe.com/us/en/home.html)**
+### 1. Software Engineer @ **[Hewlett Packard Enterprise](https://www.hpe.com/us/en/home.html)**
 
-`Jan 2023 - July 2023`
+`Jan 2023 - Present`
 
-Tech Stack : `React` `Node.js` `Express.js` `MongoDB` `RESTful API` `Postman`
+Tech Stack : `React` `Node.js` `Express.js` `MongoDB` `RESTful API` `Postman` `Docker`
 
 **First project - Logarithmic Ranking for Cross Domain Correlations**
 
@@ -77,9 +91,26 @@ Tech Stack : `Natural Language Toolkit` `Python` `Flair`
 
 ## Projects
 
-### Save A Life Maps
+### 1. Resource Booking App
 
-Tech Stack : `Node.js` `Express.js` `Google Maps API` `RESTful API` `Microservices Architecture` `HTML` `CSS` `Javascript` `MongoDB`
+#### Links : <a href='/blog/projects/resource-booking-app' className="text-[#f26e84d9] dark:text-[#f26e84d9]">Blog Post</a> <a href='https://github.com/anusha-c18/resource-booking-app' className="text-[#f26e84d9] dark:text-[#f26e84d9]">Code</a> <a href='https://resource-booking-frontend.vercel.app/' className="text-[#f26e84d9] dark:text-[#f26e84d9]">Frontend</a> <a href='https://resource-booking-api.vercel.app/' className="text-[#f26e84d9] dark:text-[#f26e84d9]">RESTful API</a>
+
+#### Tech Stack : `Auth0` `React` `React Router` `React Hot Toast` `Framer Motion` `Vercel` `Vite` `Node.js` `Express.js` `MongoDB Atlas` `Postman` `JMeter`
+
+- Developed a user-friendly web application for seamless resource booking and administration
+- Engineered a three-tier system architecture comprising the frontend, RESTful API, and database
+- Integrated Auth0 for secure user authentication & authorization: created secure endpoints and Role-Based Access Control
+- Utilized Auth0 to implement 2 user roles: Client and Admin, each with specific scopes, integrated Universal Login, and enabled social connections via Google and Gmail
+- Admin’s functionalities - Create, read, update, and delete (CRUD) resources
+- Client’s functionalities - Book resources and view current and previous bookings
+- Deployed the frontend and backend separately on Vercel, ensuring efficient scaling and management
+- Developed 3 collections: allResources, bookings, and users in the resourceBooking database hosted on a cluster in MongoDB Atlas
+
+### 2. Save A Life Maps
+
+#### Links : <a href='/blog/projects/save-a-life-maps' className="text-[#f26e84d9] dark:text-[#f26e84d9]">Blog Post</a> <a href='https://github.com/GG-SIH' className="text-[#f26e84d9] dark:text-[#f26e84d9]">Code</a> <a href='https://sal-showcase.web.app/' className="text-[#f26e84d9] dark:text-[#f26e84d9]">Showcase Web App</a>
+
+#### Tech Stack : `Node.js` `Express.js` `Google Maps API` `RESTful API` `Microservices Architecture` `HTML` `CSS` `Javascript` `MongoDB`
 
 - Invented a novel path clearance algorithm that notifies the users in transit along the path of ambulances to make way
 - Architected system architecture for microservices, REST API, and Flutter apps. Established data flow for all the functionalities
@@ -157,6 +188,7 @@ Society 5.0: Smart Future Towards Enhancing the Quality of Society. Springer, Si
 - CSS
 - Python
 - C
+- TypeScript
 
 ### Libraries/Frameworks
 
@@ -164,6 +196,8 @@ Society 5.0: Smart Future Towards Enhancing the Quality of Society. Springer, Si
 - Node.js
 - Express.js
 - Framer Motion
+- React Router
+- React Hot Toast
 
 ### Databases
 
@@ -173,11 +207,13 @@ Society 5.0: Smart Future Towards Enhancing the Quality of Society. Springer, Si
 
 ### Platforms
 
+- Docker
+- Auth0
 - Vercel
 - Heroku
 - Firebase
-- Unity 3D
 - Postman
+- Apache JMeter
 
 ---
 
