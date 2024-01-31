@@ -4,8 +4,8 @@ class MyDocument extends Document {
     return (
       <Html lang="en" className="scroll-smooth">
         <Head>
-          <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/transparent.png" />
-          <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/transparent.png" />
+          <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/me2.png" />
+          <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/me2.png" />
           <meta name="msapplication-TileColor" content="#000000" />
           <meta name="theme-color" content="#000000" />
           <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
