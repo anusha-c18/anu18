@@ -240,7 +240,7 @@ export default function Home({ posts }) {
               </p>
               <p className="flex items-center truncate">
                 <span className="flex-1 truncate text-zinc-500 dark:text-zinc-400">
-                  Full Stack Engineering Intern
+                  Full Stack Engineer
                 </span>
               </p>
             </div>

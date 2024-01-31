@@ -36,7 +36,7 @@ github: https://github.com/anusha-c18
 
 `Jan 2023 - Present`
 
-Tech Stack : `React` `Node.js` `Express.js` `MongoDB` `RESTful API` `Postman` `Docker`
+Tech Stack : `React` `Node.js` `Express.js` `MongoDB` `RESTful API` `Postman` `Docker` `Python` `ksqlDB` `Kubernetes`
 
 **First project - Logarithmic Ranking for Cross Domain Correlations**
 
@@ -59,7 +59,7 @@ Tech Stack : `React` `Node.js` `Express.js` `MongoDB` `RESTful API` `Postman` `D
 
 ---
 
-### 2. Full Stack Engineering Intern @ [Aara.co](https://aara.vercel.app/)
+### 2. Full Stack Engineer @ [Aara.co](https://aara.vercel.app/)
 
 `Sept 2022 - March 2023`
 
