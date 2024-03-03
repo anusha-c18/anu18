@@ -2,7 +2,7 @@
 name: Anusha Chaturvedi
 avatar: /static/images/me.png
 occupation: Software Engineer
-company: HPE
+company: Canonical
 email: anushac18@gmail.com
 linkedin: https://www.linkedin.com/in/anusha18
 github: https://github.com/anusha-c18
@@ -32,9 +32,15 @@ github: https://github.com/anusha-c18
 
 ## Experience
 
-### 1. Software Engineer @ **[Hewlett Packard Enterprise](https://www.hpe.com/us/en/home.html)**
+### 1. Software Engineer @ **[Canonical](https://canonical.com/)**
 
-`Jan 2023 - Present`
+`Feb 2024 - Present`
+
+Tech Stack : `React` `JavaScript` `TypeScript`
+
+### 2. Software Engineer @ **[Hewlett Packard Enterprise](https://www.hpe.com/us/en/home.html)**
+
+`Jan 2023 - Feb 2024`
 
 Tech Stack : `React` `Node.js` `Express.js` `MongoDB` `RESTful API` `Postman` `Docker` `Python` `ksqlDB` `Kubernetes`
 
@@ -59,7 +65,7 @@ Tech Stack : `React` `Node.js` `Express.js` `MongoDB` `RESTful API` `Postman` `D
 
 ---
 
-### 2. Full Stack Engineer @ [Aara.co](https://aara.vercel.app/)
+### 3. Full Stack Engineer @ [Aara.co](https://aara.vercel.app/)
 
 `Sept 2022 - March 2023`
 
@@ -78,7 +84,7 @@ Tech Stack : `React` `Firebase Auth` `Firebase Firestore` `Framer Motion`
 
 ---
 
-### 3. Research Intern @ [Samsung Electronics Co., LTD](https://www.samsung.com/us/about-us/our-business/)
+### 4. Research Intern @ [Samsung Electronics Co., LTD](https://www.samsung.com/us/about-us/our-business/)
 
 `Oct 2021 - June 2022`
 
